@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@source "../index.html";
+@source "../src/**/*.{js,ts,jsx,tsx}";
+
+@theme {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-arabic: 'Amiri', 'Cairo', serif;
+
+  --color-emerald-deep: #1A4D8F;
+  --color-emerald-dark: #1A4D8F;
+  --color-emerald-subtle: #124A40;
+  --color-ivory: #F6F1E7;
+  --color-ivory-warm: #FAF7F2;
+  --color-gold: #C9A45C;
+  --color-gold-light: #DFBA74;
+  --color-gold-dark: #A9833D;
+  --color-charcoal: #151918;
+  --color-charcoal-muted: #4B5552;
+}
+
+/* Custom Islamic pattern & font utilities */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Subtle architectural arch clipping & card styling */
+.arch-top {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
+
+.arch-window {
+  border-radius: 120px 120px 12px 12px;
+}
+
+.arch-card {
+  border-top-left-radius: 48px;
+  border-top-right-radius: 48px;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
+}
+
+/* Elegant custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F6F1E7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C9A45C;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #082D7B;
+}
+
+/* Glassmorphism & glow effects */
+.glass-emerald {
+  background: rgba(11, 61, 53, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 164, 92, 0.25);
+}
+
+.glass-light {
+  background: rgba(251, 249, 245, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(11, 61, 53, 0.08);
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px -4px rgba(201, 164, 92, 0.35);
+}
+
+.emerald-glow {
+  box-shadow: 0 0 35px -5px rgba(26, 77, 143, 0.35);
+}
+
+/* Capsule Navbar styling */
+.capsule-bar {
+  background: rgba(255, 255, 255, 0.43);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(26, 77, 143, 0.093);
+  box-shadow: 0 12px 32px -4px rgba(26, 77, 143, 0.09), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+}
+
+.capsule-bar:hover {
+  border-color: rgba(26, 77, 143, 0.22);
+}
+
+/* Float animation for decorative items */
+@keyframes soft-float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-soft-float {
+  animation: soft-float 4s ease-in-out infinite;
+}
+
+/* Smooth motion for tabs and modal */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

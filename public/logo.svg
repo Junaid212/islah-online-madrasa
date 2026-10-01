@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" width="100%" height="100%">
+  <!-- 8-Pointed Star Badge Background & Border -->
+  <path
+    d="M 100,7 L 127.3,34 L 166,34 L 166,72.7 L 193.3,100 L 166,127.3 L 166,166 L 127.3,166 L 100,193.3 L 72.7,166 L 34,166 L 34,127.3 L 6.7,100 L 34,72.7 L 34,34 L 72.7,34 Z"
+    fill="#FFFFFF"
+    stroke="#082D7B"
+    stroke-width="2.5"
+    stroke-linejoin="round"
+  />
+
+  <!-- Emblem Inner Scale Group -->
+  <g transform="translate(10, 0) scale(0.9)">
+    <!-- Graduation Cap atop Fountain Pen -->
+    <path
+      d="M100 36L130 47L100 58L70 47L100 36Z"
+      fill="#082D7B"
+    />
+    <path
+      d="M84 52.5V59C84 64.5 116 64.5 116 59V52.5"
+      stroke="#082D7B"
+      stroke-width="2.5"
+      stroke-linecap="round"
+    />
+    <path
+      d="M123.5 48V58C123.5 60.5 126 62 127.5 62"
+      stroke="#082D7B"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+
+    <!-- Fountain Pen Nib -->
+    <path
+      d="M100 61L117 84L106 112L100 118L94 112L83 84L100 61Z"
+      fill="#082D7B"
+    />
+    <circle cx="100" cy="89" r="2.2" fill="#FFFFFF" />
+    <line x1="100" y1="89" x2="100" y2="116" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" />
+
+    <!-- Open Book Right Pages -->
+    <path
+      d="M103 112C116 95 137 81 162 75V110C138 116 117 121 103 117V112Z"
+      fill="#082D7B"
+    />
+    <path
+      d="M106 109C119 91 138 82 159 78"
+      stroke="#00A3E0"
+      stroke-width="3"
+      stroke-linecap="round"
+    />
+    <path
+      d="M109 115C122 107 141 102 157 100"
+      stroke="#00A3E0"
+      stroke-width="2.5"
+      stroke-linecap="round"
+    />
+    <path
+      d="M103 120C119 123 141 120 162 112"
+      stroke="#082D7B"
+      stroke-width="3"
+      stroke-linecap="round"
+    />
+
+    <!-- Open Book Left Pages -->
+    <path
+      d="M97 112C84 95 63 81 38 75V110C62 116 83 121 97 117V112Z"
+      fill="#082D7B"
+    />
+    <path
+      d="M94 109C81 91 62 82 41 78"
+      stroke="#00A3E0"
+      stroke-width="3"
+      stroke-linecap="round"
+    />
+    <path
+      d="M91 115C78 107 59 102 43 100"
+      stroke="#00A3E0"
+      stroke-width="2.5"
+      stroke-linecap="round"
+    />
+    <path
+      d="M97 120C81 123 59 120 38 112"
+      stroke="#082D7B"
+      stroke-width="3"
+      stroke-linecap="round"
+    />
+
+    <!-- Bottom Curve Spine -->
+    <path
+      d="M100 117C114 123 138 127 159 120C141 129 117 130 100 125C83 130 59 129 41 120C62 127 86 123 100 117Z"
+      fill="#082D7B"
+    />
+  </g>
+
+  <!-- Typography: ISLAH ONLINE MADRASA -->
+  <text
+    x="100"
+    y="148"
+    text-anchor="middle"
+    font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif"
+    font-size="12"
+    font-weight="800"
+    letter-spacing="0.14em"
+    fill="#082D7B"
+  >
+    ISLAH ONLINE
+  </text>
+  <text
+    x="100"
+    y="164"
+    text-anchor="middle"
+    font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif"
+    font-size="11"
+    font-weight="900"
+    letter-spacing="0.22em"
+    fill="#082D7B"
+  >
+    MADRASA
+  </text>
+</svg>
