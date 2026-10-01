@@ -134,7 +134,7 @@ export default function App() {
               }
             />
             <Route
-              path="/admissions"
+              path="/contact"
               element={
                 <AdmissionsPage
                   onOpenTrialModal={handleOpenTrialModal}

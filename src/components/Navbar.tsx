@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { key: 'teaching-approach', label: 'Teaching Approach', to: '/teaching-approach' },
     { key: 'workshops', label: 'Workshops', to: '/workshops' },
     { key: 'student-achievements', label: 'Achievements', to: '/student-achievements' },
-    { key: 'admissions', label: 'Admissions', to: '/admissions' },
+    { key: 'admissions', label: 'Contact Us', to: '/contact' },
   ];
 
   const handleLinkClick = (e: React.MouseEvent, to: string) => {
@@ -148,7 +148,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onClick={() => onOpenTrialModal()}
                   className="hidden sm:inline-flex items-center gap-2 px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-semibold text-[#082D7B] bg-white border border-[#082D7B]/30 hover:bg-[#082D7B]/5 transition-all duration-200 shadow-2xs whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[#082D7B]"
                 >
-                  <span>Book Free Trial</span>
+                  <span>Admission</span>
                   <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.2]" />
                 </button>
 

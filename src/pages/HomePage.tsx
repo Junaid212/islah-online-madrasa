@@ -88,19 +88,19 @@ export const HomePage: React.FC<HomePageProps> = ({
       <TestimonialsSection onPlayVideoTestimonial={onSelectTestimonial} />
 
       {/* 12. Student Progress Dashboard */}
-      <StudentProgressSection />
+      {/* <StudentProgressSection /> */}
 
       {/* 13. Parent Experience */}
-      <ParentExperience />
+      {/* <ParentExperience /> */}
 
       {/* 14. Social Media (Life at Islah) */}
-      <SocialSection />
+      {/* <SocialSection /> */}
 
       {/* 15. Admission / WhatsApp Major Conversion CTA */}
-      <AdmissionSection
+      {/* <AdmissionSection
         onOpenTrialModal={() => onOpenTrialModal()}
         onOpenWhatsApp={onOpenWhatsApp}
-      />
+      /> */}
 
       {/* 16. FAQ Accordion */}
       <FaqSection onOpenWhatsApp={onOpenWhatsApp} />
