@@ -250,33 +250,33 @@ export const COURSES: Course[] = [
 export const LEARNING_JOURNEY_STEPS = [
   {
     step: "01",
-    title: "Discover",
-    subtitle: "Gentle assessment & orientation",
-    description: "We evaluate your child's current familiarity with the Arabic alphabet, pronunciation, or memorisation level in a warm, welcoming free trial class."
+    title: "Assessment",
+    subtitle: "Personalized Diagnostic",
+    description: "A patient diagnostic session to identify your child's exact reading speed, pronunciation habits, and ideal learning style."
   },
   {
     step: "02",
-    title: "Learn",
-    subtitle: "Foundational mastery step-by-step",
-    description: "Building steady phonetic precision, Tajweed fundamentals, and Islamic comprehension through interactive one-on-one sessions."
+    title: "Personalised Learning",
+    subtitle: "Customized Pace & Goals",
+    description: "Every child is unique. Whether your child needs extra patience on tricky letters or is ready for accelerated Hifz, we adapt the roadmap."
   },
   {
     step: "03",
-    title: "Practice",
-    subtitle: "Daily repetition & vocal correction",
-    description: "Reinforcing lessons through guided recitation drills, auditory modeling, and gentle teacher corrections without pressure."
+    title: "1-on-1 or Small Groups",
+    subtitle: "Undivided Attention",
+    description: "No crowded virtual rooms where children get lost. The teacher listens intently to every single letter and breath."
   },
   {
     step: "04",
-    title: "Grow",
-    subtitle: "Confidence & spiritual attachment",
-    description: "Students begin reciting independently with poise, memorizing key Surahs and discovering the noble character of the Prophet (ﷺ)."
+    title: "Regular Practice",
+    subtitle: "Habit-Forming Routine",
+    description: "Consistent 30 to 45-minute sessions scheduled around your family's timezone, ensuring steady progress without homework fatigue."
   },
   {
     step: "05",
-    title: "Progress",
-    subtitle: "Milestone celebration & parent reporting",
-    description: "Parents receive transparent quarterly reviews, audio recordings of recitation progress, and certificates of stage completion."
+    title: "Progress Feedback",
+    subtitle: "Transparent Parent Partnership",
+    description: "Voice notes, attendance records, and direct WhatsApp updates after lessons so you are always connected to their growth."
   }
 ];
 

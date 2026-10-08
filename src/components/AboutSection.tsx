@@ -117,9 +117,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                   About Islah Online Madrasa
                 </span>
 
-                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white font-normal leading-snug mb-4">
+                <h2 className="text-2xl sm:text-2xl lg:text-3xl text-white font-bold leading-snug mb-4">
                   Quality Islamic Education,{' '}
-                  <span className="italic text-[#DFBA74]">Structured for Modern Families.</span>
+                  <span className=" text-[#DFBA74]">Structured for Modern Families.</span>
                 </h2>
 
                 <div className="space-y-3 text-sm sm:text-base text-white/85 leading-relaxed font-sans font-light mb-6">

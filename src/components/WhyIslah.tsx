@@ -205,7 +205,7 @@ export const WhyIslah: React.FC<WhyIslahProps> = ({ onOpenTrialModal }) => {
                   <div>
                     {/* Number Badge & Icon Header */}
                     <div className="flex items-center justify-between mb-2.5">
-                      <span className="font-serif text-xl sm:text-2xl text-[#C9A45C] font-bold tabular-nums">
+                      <span className="text-xl sm:text-2xl text-[#C9A45C] font-bold tabular-nums">
                         {card.number}
                       </span>
                       <div className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center group-hover:bg-[#C9A45C] group-hover:text-[#082D7B] transition-colors duration-200">
@@ -214,7 +214,7 @@ export const WhyIslah: React.FC<WhyIslahProps> = ({ onOpenTrialModal }) => {
                     </div>
 
                     {/* Card Title */}
-                    <h3 className="font-serif text-xs sm:text-[13px] font-bold text-white leading-snug line-clamp-3 mb-2">
+                    <h3 className="text-xs sm:text-[13px] font-bold text-white leading-snug line-clamp-3 mb-2">
                       {card.title}
                     </h3>
 
@@ -363,7 +363,7 @@ export const WhyIslah: React.FC<WhyIslahProps> = ({ onOpenTrialModal }) => {
                   <div>
                     {/* Header: Number and Icon */}
                     <div className="flex items-center justify-between mb-2.5">
-                      <span className="font-serif text-2xl font-bold text-[#C9A45C] tabular-nums tracking-tight">
+                      <span className="text-2xl font-bold text-[#C9A45C] tabular-nums tracking-tight">
                         {card.number}
                       </span>
                       <div className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center backdrop-blur-sm">
@@ -372,7 +372,7 @@ export const WhyIslah: React.FC<WhyIslahProps> = ({ onOpenTrialModal }) => {
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-serif text-[13px] font-bold text-white leading-snug line-clamp-3 mb-2">
+                    <h3 className="text-[13px] font-bold text-white leading-snug line-clamp-3 mb-2">
                       {card.title}
                     </h3>
 
@@ -410,9 +410,9 @@ export const WhyIslah: React.FC<WhyIslahProps> = ({ onOpenTrialModal }) => {
         </div>
 
         {/* Main Headline */}
-        <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#082D7B] font-bold tracking-tight leading-[1.12] mb-6 text-balance max-w-3xl mx-auto">
+        <h2 className="text-3xl sm:text-5xl lg:text-5xl text-[#082D7B] font-bold tracking-tight leading-[1.12] mb-6 text-balance max-w-3xl mx-auto">
           More Than Lessons. <br />
-          <span className="italic font-normal text-[#082822]">
+          <span className="italic font-normal text-[#c9a45c]">
             A Foundation for Life.
           </span>
         </h2>

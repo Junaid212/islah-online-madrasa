@@ -76,10 +76,10 @@ export const HomePage: React.FC<HomePageProps> = ({
       <LearningJourney onOpenTrialModal={() => onOpenTrialModal()} />
 
       {/* 8. Teaching Methodology */}
-      <TeachingMethod />
+      {/* <TeachingMethod /> */}
 
       {/* 9. Teachers Section */}
-      <TeachersSection />
+      {/* <TeachersSection /> */}
 
       {/* 10. Student Performance Gallery */}
       <StudentPerformance onSelectPerformance={onSelectPerformance} />
@@ -103,7 +103,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       /> */}
 
       {/* 16. FAQ Accordion */}
-      <FaqSection onOpenWhatsApp={onOpenWhatsApp} />
+      {/* <FaqSection onOpenWhatsApp={onOpenWhatsApp} /> */}
 
       {/* 17. Final Immersive CTA */}
       <FinalCta onOpenTrialModal={() => onOpenTrialModal()} />

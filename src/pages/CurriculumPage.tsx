@@ -656,48 +656,6 @@ export const CurriculumPage: React.FC<CurriculumPageProps> = ({
         </div>
       </section>
 
-      {/* 7. MAJOR CALL TO ACTION: ENQUIRE ABOUT COURSES */}
-      <section className="relative py-20 sm:py-24 bg-gradient-to-br from-[#082D7B] via-[#0D2D72] to-[#0568BD] text-white text-center overflow-hidden">
-        <HeroBgPattern isDark opacity={0.07} />
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs text-[#C9A45C] font-semibold mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span className="uppercase tracking-widest text-[10px] sm:text-xs">Start With Confidence</span>
-          </div>
-
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight mb-6 leading-tight">
-            Ready to Start Your Child's Structured Islamic Journey?
-          </h2>
-
-          <p className="font-sans text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Begin with a free 1-on-1 placement assessment. Our senior educators will evaluate your child's current reading ability and recommend the ideal curriculum level.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => onOpenTrialModal()}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-bold text-[#082D7B] bg-[#C9A45C] hover:bg-white transition-all shadow-xl hover:shadow-2xl active:scale-95 cursor-pointer"
-            >
-              <span>Enquire About Courses</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
-            <button
-              onClick={onOpenWhatsApp}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 transition-all cursor-pointer"
-            >
-              <MessageCircle className="w-4 h-4 text-[#25D366]" />
-              <span>Chat With Admissions on WhatsApp</span>
-            </button>
-          </div>
-
-          <div className="mt-8 text-xs text-white/60">
-            Free 30-minute trial session • Tailored level placement • No credit card required
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 };

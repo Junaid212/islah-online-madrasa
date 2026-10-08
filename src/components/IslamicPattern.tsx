@@ -116,7 +116,7 @@ export const HeroBgPattern: React.FC<HeroBgPatternProps> = ({
 
   return (
     <>
-      {withAmbient && <AmbientLightCanvas className={className} />}
+      {/* {withAmbient && <AmbientLightCanvas className={className} />} */}
       <IslamicPattern
         opacity={resolvedOpacity}
         strokeColor={resolvedStroke}

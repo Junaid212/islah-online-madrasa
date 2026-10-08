@@ -140,7 +140,7 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
 
   return (
     <div className="min-h-screen bg-[#FBF9F5] text-[#151918]">
-      
+
       {/* 1. HERO INNER BANNER */}
       <InnerBanner
         title="Learn, Understand & Implement"
@@ -154,7 +154,7 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
+
             {/* Left Content (7 cols) */}
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-4">
@@ -219,7 +219,7 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
             <div className="lg:col-span-5">
               <div className="relative">
                 <div className="absolute -inset-3 bg-gradient-to-tr from-[#082D7B]/20 via-[#C9A45C]/20 to-transparent rounded-3xl blur-xl" />
-                
+
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white bg-white">
                   <img
                     src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=80"
@@ -227,7 +227,7 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
                     className="w-full h-80 sm:h-96 object-cover"
                     loading="lazy"
                   />
-                  
+
                   <div className="p-6 bg-gradient-to-b from-white to-[#F8F6F0]">
                     <div className="flex items-center gap-2 text-xs text-[#C9A45C] font-bold mb-1">
                       <Sparkles className="w-4 h-4" />
@@ -251,7 +251,7 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
       {/* 3. SECTION 2: THREE-STEP LEARNING PHILOSOPHY */}
       <section className="relative py-16 sm:py-24 bg-white border-t border-[#082D7B]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-3">
               <Award className="w-3.5 h-3.5 text-[#C9A45C]" />
@@ -320,7 +320,7 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
         <HeroBgPattern opacity={0.03} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-3">
               <Gamepad2 className="w-3.5 h-3.5 text-[#C9A45C]" />
@@ -371,14 +371,14 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
       {/* 5. SECTION 4: CHARACTER DEVELOPMENT (AKHLAAQ & TARBIYAH) */}
       <section className="relative py-16 sm:py-24 bg-white border-t border-[#082D7B]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Image Showcase (5 cols) */}
             <div className="lg:col-span-5 order-2 lg:order-1">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white">
                 <img
-                  src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=80"
+                  src="https://i.pinimg.com/736x/2e/ef/dc/2eefdc096c3bfce17ef597be49b5fbbd.jpg"
                   alt="Young student showing good manners and attentive listening"
                   className="w-full h-96 object-cover"
                   loading="lazy"
@@ -441,7 +441,7 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
         <HeroBgPattern opacity={0.03} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-3">
               <Lightbulb className="w-3.5 h-3.5 text-[#C9A45C]" />
@@ -505,7 +505,7 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
         <HeroBgPattern isDark opacity={0.06} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs text-[#C9A45C] font-semibold mb-3">
               <Award className="w-3.5 h-3.5" />
@@ -554,7 +554,7 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
       </section>
 
       {/* 8. MAJOR CTA: EXPERIENCE THE ISLAH LEARNING APPROACH */}
-      <section className="relative py-20 sm:py-24 bg-gradient-to-br from-[#082D7B] via-[#0D2D72] to-[#0568BD] text-white text-center overflow-hidden">
+      {/* <section className="relative py-20 sm:py-24 bg-gradient-to-br from-[#082D7B] via-[#0D2D72] to-[#0568BD] text-white text-center overflow-hidden">
         <HeroBgPattern isDark opacity={0.07} />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -593,7 +593,7 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
             Free 30-minute interactive trial • Tailored pace assessment • Worldwide availability
           </div>
         </div>
-      </section>
+      </section> */}
 
     </div>
   );

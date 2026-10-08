@@ -72,9 +72,9 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                 <p className="text-xs text-[#C9A45C] font-semibold uppercase tracking-widest mb-1">
                   {performanceItem.surahOrTopic}
                 </p>
-                <h3 className="font-serif text-xl sm:text-2xl text-white font-medium">
+                {/* <h3 className="font-serif text-xl sm:text-2xl text-white font-medium">
                   {performanceItem.title}
-                </h3>
+                </h3> */}
               </>
             )}
 
@@ -143,9 +143,9 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                 </span>
               </div>
 
-              <div className="text-[11px] text-[#C9A45C] font-medium">
+              {/* <div className="text-[11px] text-[#C9A45C] font-medium">
                 Live Madrasa Audio Recording
-              </div>
+              </div> */}
             </div>
 
           </div>
@@ -153,7 +153,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
         </div>
 
         {/* Narrative / Contextual Notes */}
-        <div className="p-6 bg-[#082D7B] flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10">
+        {/* <div className="p-6 bg-[#082D7B] flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10">
           <div className="text-left">
             <h4 className="font-serif text-base text-white font-medium">
               Experience this standard of learning for your child
@@ -172,7 +172,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
           >
             <span>Book Free Trial Class</span>
           </button>
-        </div>
+        </div> */}
 
       </div>
     </div>

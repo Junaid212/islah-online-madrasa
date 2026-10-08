@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { ArrowRight, Sparkles, BookOpen, Volume2, ShieldCheck, HeartHandshake, CheckCircle } from 'lucide-react';
-import { IslamicPattern, HeroBgPattern } from './IslamicPattern';
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+import { HeroBgPattern } from './IslamicPattern';
 
 interface HeroSectionProps {
   onOpenTrialModal: () => void;
@@ -11,213 +11,170 @@ interface HeroSectionProps {
 export const HeroSection: React.FC<HeroSectionProps> = ({
   onOpenTrialModal,
   onExploreCourses,
-  onOpenWhatsApp,
+  onOpenWhatsApp: _onOpenWhatsApp,
 }) => {
-  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
-
-  // Playful simulated respectful audio feedback for Bismillah / Iqra verse
-  const handleToggleRecitation = () => {
-    setIsPlayingAudio(prev => !prev);
-    if (!isPlayingAudio) {
-      setTimeout(() => setIsPlayingAudio(false), 5500);
-    }
-  };
-
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] lg:min-h-screen pt-28 pb-16 lg:py-32 flex items-center justify-center overflow-hidden bg-[#FBF9F5]"
+      className="relative min-h-[110vh] lg:min-h-screen pt-24 sm:pt-28 pb-12 sm:pb-16 lg:py-42  flex items-center justify-center overflow-hidden bg-[#061838]"
     >
+      {/* Background Image: hero-bg2.webp - On mobile focused to 78% right, on PC centered cover */}
+      <img
+        className="absolute top-0 left-0 right-0 h-full w-full object-cover object-[78%_center] sm:object-center select-none pointer-events-none"
+        src="/assets/img/Golden Arch, Mosque Skyline, and Lanterns.png"
+        alt="Islah Online Madrasa"
+      />
+
+      {/* Mobile-Only Contrast Gradient on Left (Desktop is untouched) */}
+      <div
+        className="sm:hidden absolute inset-0 bg-gradient-to-r from-[#061838]/95 via-[#061838]/60 to-transparent pointer-events-none"
+        aria-hidden="true"
+      />
+
       {/* Hero background: ambient lighting canvas + subtle Islamic 8-point star geometric backdrop */}
-      <HeroBgPattern />
+      <HeroBgPattern opacity={0.04} />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-20">
 
-          {/* Left Column: Typography & Conversion Story (7 cols) */}
-          <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col items-center sm:items-start text-left">
+        {/* ========================================================= */}
+        {/* 1. PC / DESKTOP STRUCTURE (Preserved exactly as it was)   */}
+        {/* ========================================================= */}
+        <div className="hidden sm:grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
-            {/* Arabic Calligraphy Header - Iqra: The First Divine Command */}
-            <div className="inline-flex items-center gap-3 mb-5 py-1 text-sm text-[#082D7B]/80">
-              <span className="font-arabic text-md sm:text-2xl text-[#082D7B] font-bold tracking-wide">
+          {/* Left Column (Desktop 7 cols) */}
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
+
+            {/* Arabic Calligraphy Header - Smooth Landing Badge */}
+            <div className="animate-landing-badge inline-flex items-center gap-2 sm:gap-3 mb-4 py-1 text-sm text-[#082D7B]/80 mx-auto lg:mx-0">
+              <span className="font-arabic text-xs sm:text-xl text-[#c9a45c] font-bold tracking-wide">
                 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
               </span>
-              <span className="h-4 w-px bg-[#082D7B]/20" aria-hidden="true" />
-              <span className="text-[9px] sm:text-sm uppercase tracking-[0.25em] text-[#C9A45C] font-semibold">
+              <span className="h-3.5 w-px bg-[#c9a45c]/80" aria-hidden="true" />
+              <span className="text-[8px] sm:text-xs uppercase tracking-[0.22em] text-[#C9A45C] font-semibold">
                 Islah Online Madrasa
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-serif text-center sm:text-left text-4xl sm:text-5xl lg:text-6xl text-[#082D7B] font-bold tracking-tight leading-[1.12] mb-6 text-balance">
-              Nurturing a Stronger <span className="italic font-normal text-[#082822]">Muslim Generation</span>{' '}
-              <br className="hidden sm:inline" />
-              {/* One Lesson at a Time. */}
+            {/* Main Headline - Smooth Landing Headline */}
+            <h1 className="animate-landing-headline text-4xl sm:text-5xl lg:text-6xl text-[#ffffff] font-black tracking-tight leading-[1.15] mb-5 sm:mb-6 text-balance">
+              More Than Lessons. <br />
+              <span className="text-[#c9a45c]">A Foundation for Life.</span>
             </h1>
 
-            {/* Supporting Value Proposition */}
-            <p className="font-sans text-center sm:text-left text-base sm:text-lg lg:text-xl text-[#151918]/80 font-normal leading-relaxed max-w-2xl mb-8">
-              Quality Online Islamic Education for Children — Learn, Understand & Live Islam.
+            {/* Supporting Value Proposition - Smooth Landing Subtext */}
+            <p className="animate-landing-subtext font-sans text-sm sm:text-base lg:text-xl text-[#E8EDF2]/80 font-normal leading-relaxed max-w-2xl mb-6 sm:mb-8 mt-2 lg:mt-0">
+              Quality Online Islamic Education for Children — <br className="sm:hidden" />
+              Learn, Understand & Live Islam.
             </p>
 
-            {/* Primary & Secondary CTAs - 2 in a row across all devices */}
-            <div className="flex flex-row items-center gap-2.5 sm:gap-4 mb-10 w-full sm:w-auto">
+            {/* Primary & Secondary CTAs - Smooth Landing Actions */}
+            <div className="animate-landing-actions flex flex-row items-center justify-center lg:justify-start gap-2.5 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
               <button
+                type="button"
                 onClick={onOpenTrialModal}
-                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2.5 px-3.5 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-white bg-[#082D7B] hover:bg-[#001E3C] active:scale-[0.98] rounded-md transition-all shadow-sm hover:shadow-md cursor-pointer focus-visible:outline-2 focus-visible:outline-[#082D7B] whitespace-nowrap"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2.5 px-4 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-white bg-[#C9A45C] hover:bg-[#1B2CC1] active:scale-[0.98] rounded-md transition-all shadow-sm hover:shadow-md cursor-pointer focus-visible:outline-2 focus-visible:outline-[#082D7B] whitespace-nowrap"
               >
                 <span>Book a Free Trial</span>
-                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C9A45C] shrink-0" />
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#082D7B] shrink-0" />
               </button>
 
               <button
+                type="button"
                 onClick={onExploreCourses}
-                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-medium text-[#082D7B] bg-white hover:bg-[#F6F1E7] border border-[#082D7B]/20 rounded-md transition-colors cursor-pointer whitespace-nowrap"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-medium text-[#082D7B] bg-white hover:bg-[#F6F1E7] border border-[#082D7B]/20 rounded-md transition-colors cursor-pointer whitespace-nowrap"
               >
                 <span>Explore Courses</span>
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#082D7B] shrink-0" />
               </button>
             </div>
 
-            {/* Trust statement: "Qur'an • Sunnah • Character • Confidence" */}
-            <div className="pt-6 border-t border-[#082D7B]/10 w-full">
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm text-[#082D7B]/85 font-medium">
+            {/* Trust statement: "Qur'an • Sunnah • Character • Confidence" - Smooth Landing Trust */}
+            <div className="animate-landing-trust pt-5 sm:pt-6 border-t border-[#C9A45C]/80 w-full flex justify-center lg:justify-start">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 text-xs sm:text-sm text-[#C9A45C]/85 font-medium">
                 <span className="text-[#C9A45C] font-serif text-base">✦</span>
                 <span className="tracking-wide">Qur'an</span>
-                <span className="text-[#082D7B]/30">·</span>
+                <span className="text-[#C9A45C]/30">·</span>
                 <span className="tracking-wide">Sunnah</span>
-                <span className="text-[#082D7B]/30">·</span>
+                <span className="text-[#C9A45C]/30">·</span>
                 <span className="tracking-wide">Character</span>
-                <span className="text-[#082D7B]/30">·</span>
+                <span className="text-[#C9A45C]/30">·</span>
                 <span className="tracking-wide">Confidence</span>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Cinematic Visual Composition (5 cols) */}
-          <div className="order-1 lg:order-2 lg:col-span-5 relative w-full flex justify-center">
+          {/* Spacer column (Desktop Only) to reserve space for the attached right image */}
+          <div className="hidden lg:block lg:col-span-5 pointer-events-none" aria-hidden="true" />
 
-            {/* Architectural Arch Frame */}
-            <div className="relative w-full max-w-md lg:max-w-none">
+        </div>
 
-              {/* Decorative Arch Backdrop with subtle gold border */}
-              <div className="relative rounded-t-[180px] sm:rounded-t-[230px] rounded-b-2xl p-3 bg-gradient-to-b from-[#F6F1E7] via-white to-[#F6F1E7] border border-[#C9A45C]/30 shadow-[0_20px_50px_-15px_rgba(11,61,53,0.12)] overflow-hidden">
+        {/* ========================================================= */}
+        {/* 2. MOBILE STRUCTURE (Matching mobile reference image)     */}
+        {/* ========================================================= */}
+        <div className="block sm:hidden flex flex-col items-start text-left">
 
-                {/* Visual Media Canvas: Child Learning Online with Teacher */}
-                <div className="relative rounded-t-[170px] sm:rounded-t-[230px] rounded-b-xl overflow-hidden aspect-[4/5] bg-[#001E3C]">
+          {/* Arabic Calligraphy Header - Smooth Landing Badge */}
+          <div className="animate-landing-badge inline-flex items-center gap-2 mb-3 py-1 text-xs text-[#c9a45c] select-none">
+            <span className="font-arabic text-xs font-bold tracking-wide">
+              بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+            </span>
+            <span className="h-3.5 w-px bg-[#c9a45c]/80" aria-hidden="true" />
+            <span className=" text-[8px] uppercase tracking-[0.22em] text-[#C9A45C] font-semibold">
+              Islah Online Madrasa
+            </span>
+          </div>
 
-                  {/* Subtle Quranic calligraphy overlay in background */}
-                  <div className="absolute inset-0 opacity-15 mix-blend-overlay pointer-events-none">
-                    <IslamicPattern variant="girih" strokeColor="#F6F1E7" opacity={0.6} />
-                  </div>
+          {/* Mobile 4-line Headline - Smooth Landing Headline */}
+          <h1 className="animate-landing-headline text-4xl font-extrabold tracking-tight leading-[1.12] mb-3 text-left">
+            <span className="block text-white">More Than</span>
+            <span className="block text-white">Lessons.</span>
+            <span className="block text-[#C9A45C] mt-1">A Foundation</span>
+            <span className="block text-[#C9A45C]">for Life.</span>
+          </h1>
 
-                  {/* High fidelity composed illustration / editorial visual */}
-                  <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8 text-white z-10">
+          {/* Mobile Narrow Subtitle - Smooth Landing Subtext */}
+          <p className="animate-landing-subtext font-sans text-xs text-[#E8EDF2]/80 font-normal leading-relaxed max-w-[220px] mb-6 text-left">
+            Quality Online Islamic Education for Children — Learn, Understand & Live Islam.
+          </p>
 
-                    {/* Top Islamic Arch Ribbon */}
-                    <div className="flex items-center justify-between ">
-                      {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#082D7B]/80 backdrop-blur-md border border-[#C9A45C]/40 text-[11px] text-[#F6F1E7] ">
-                        <BookOpen className="w-3.5 h-3.5 text-[#C9A45C]" />
-                        <span>Interactive 1-on-1 Class</span>
-                      </div> */}
+          {/* Mobile Stacked Pill Buttons - Smooth Landing Actions */}
+          <div className="animate-landing-actions flex flex-col items-start gap-2.5 mb-6 w-full">
+            <button
+              type="button"
+              onClick={onOpenTrialModal}
+              className="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 text-xs font-bold text-[#061838] bg-[#F3A867] hover:bg-white active:scale-[0.98] rounded-[10px] transition-all shadow-md cursor-pointer whitespace-nowrap"
+            >
+              <span>Book a Free Trial</span>
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#082D7B] shrink-0" />
+            </button>
 
-                      {/* <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-                        <Sparkles className="w-4 h-4 text-[#C9A45C]" />
-                      </div> */}
-                    </div>
+            <button
+              type="button"
+              onClick={onExploreCourses}
+              className="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 text-xs font-bold text-[#061838] bg-white hover:bg-[#F3A867] active:scale-[0.98] rounded-[10px] transition-all shadow-md cursor-pointer whitespace-nowrap"
+            >
+              <span>Explore Courses</span>
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#082D7B] shrink-0" />
+            </button>
+          </div>
 
-                    {/* Central Learning Scene Graphic */}
-                    <div className="my-auto py-4 flex flex-col items-center text-center">
-                      {/* Stylized Rehal / Quran Stand & Screen Illustration */}
-                      <div className="relative w-44 h-36 mx-auto mb-4 flex items-center justify-center">
-                        {/* Glow halo */}
-                        <div className="absolute inset-0 bg-[#C9A45C]/20 rounded-full blur-xl" />
-
-                        {/* Stylized Tablet screen with Quran verse */}
-                        <div className="relative w-36 h-26 rounded-lg bg-[#082D7B] border border-[#C9A45C]/50 p-2.5 flex flex-col justify-between shadow-2xl">
-                          <div className="flex items-center justify-between text-[9px] text-[#C9A45C]/80 border-b border-[#C9A45C]/20 pb-1">
-                            <span>Live Lesson</span>
-                            <span className="flex items-center gap-1">
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                              Active
-                            </span>
-                          </div>
-
-                          <div className="text-center py-1">
-                            <span className="font-arabic text-lg text-[#F6F1E7] block leading-tight">
-                              اقْرَأْ بِاسْمِ رَبِّكَ
-                            </span>
-                            <span className="text-[9px] text-[#F6F1E7]/70 font-sans block mt-0.5">
-                              Surah Al-Alaq · Verse 1
-                            </span>
-                          </div>
-
-                          <div className="h-1 bg-white/10 rounded-full overflow-hidden">
-                            <div className="h-full bg-[#C9A45C] w-3/4 rounded-full" />
-                          </div>
-                        </div>
-                      </div>
-
-                      <h3 className="font-serif text-xl sm:text-2xl text-[#F6F1E7] font-normal leading-snug">
-                        "The best among you are those who learn the Qur'an and teach it."
-                      </h3>
-                      <p className="text-[11px] text-[#C9A45C] uppercase tracking-widest mt-1">
-                        Sahih al-Bukhari 5027
-                      </p>
-                    </div>
-
-                    {/* Bottom Audio Recitation Control Strip */}
-                    {/* <div className="rounded-lg bg-black/40 backdrop-blur-md border border-white/10 p-3 flex items-center justify-between">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-md bg-[#082D7B]/8 text-[#082D7B] flex items-center justify-center shrink-0">
-                      <ShieldCheck className="w-4 h-4 text-[#082D7B]" />
-                    </div>
-                    <div className="justify-center items-center">
-                      <p className="text-xs font-semibold  leading-tight">
-                        Safe Home Learning
-                      </p>
-                      <p className="text-[11px] text-white/70 mt-0.5 leading-snug ">
-                        Private 1-on-1 sessions monitored directly by parents.
-                      </p>
-                    </div>
-                      </div>
-                    </div> */}
-
-                  </div>
-                </div>
-
-                {/* Floating parent reassurance card */}
-                {/* <div className="absolute -bottom-4 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md rounded-lg p-3 sm:p-4 shadow-xl border border-[#082D7B]/10 max-w-[210px] sm:max-w-[240px]">
-                  <div className="flex items-start gap-2.5">
-                    <div className="w-8 h-8 rounded-md bg-[#082D7B]/8 text-[#082D7B] flex items-center justify-center shrink-0">
-                      <ShieldCheck className="w-4 h-4 text-[#082D7B]" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-[#082D7B] leading-tight">
-                        Safe Home Learning
-                      </p>
-                      <p className="text-[11px] text-[#151918]/70 mt-0.5 leading-snug">
-                        Private 1-on-1 sessions monitored directly by parents.
-                      </p>
-                    </div>
-                  </div>
-                </div> */}
-
-                {/* Floating teacher pairing card */}
-                {/* <div className="absolute -top-3 -right-3 sm:-right-4 bg-white/95 backdrop-blur-md rounded-lg py-2 px-3 shadow-lg border border-[#082D7B]/10 hidden sm:flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-xs font-medium text-[#082D7B]">
-                    Vetted Ustadhs & Ustadhas
-                  </span>
-                </div> */}
-
-              </div>
-
+          {/* Mobile Trust Line & Indicators - Smooth Landing Trust */}
+          <div className="animate-landing-trust pt-4 border-t border-[#C9A45C]/35 w-full max-w-[260px]">
+            <div className="flex items-center gap-2 text-[10px] text-[#C9A45C] font-medium tracking-wide">
+              <span className="text-xs">✦</span>
+              <span>Qur'an</span>
+              <span className="opacity-40">·</span>
+              <span>Sunnah</span>
+              <span className="opacity-40">·</span>
+              <span>Character</span>
+              <span className="opacity-40">·</span>
+              <span>Confidence</span>
             </div>
-
           </div>
 
         </div>
+
       </div>
     </section>
   );

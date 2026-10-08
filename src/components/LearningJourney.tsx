@@ -19,11 +19,11 @@ export const LearningJourney: React.FC<LearningJourneyProps> = ({ onOpenTrialMod
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs uppercase tracking-[0.25em] text-[#C9A45C] font-semibold block mb-2">
-            The Student Experience
+            Learning Beyond classroom  
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#082D7B] font-normal tracking-tight text-balance">
-            From First Letter to <br />
-            <span className="italic">Lifelong Connection</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#082D7B] font-bold tracking-tight text-balance">
+            How Your Child Learns: <br />
+            <span className="">A Thoughtful 5-Step Method</span>
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#151918]/70 mt-3">
             A continuous, nurturing pathway engineered to build solid mastery and warm confidence at every milestone.
@@ -79,10 +79,10 @@ export const LearningJourney: React.FC<LearningJourneyProps> = ({ onOpenTrialMod
                 <Sparkles className="w-3.5 h-3.5 text-[#C9A45C]" />
                 <span>Phase {LEARNING_JOURNEY_STEPS[activeStepIndex].step} in Depth</span>
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl text-[#082D7B] font-semibold mb-2">
+              <h3 className="text-2xl sm:text-3xl text-[#082D7B] font-semibold mb-2">
                 {LEARNING_JOURNEY_STEPS[activeStepIndex].title} — {LEARNING_JOURNEY_STEPS[activeStepIndex].subtitle}
               </h3>
-              <p className="font-sans text-sm sm:text-base text-[#151918]/80 leading-relaxed">
+              <p className=" text-sm sm:text-base text-[#151918]/80 leading-relaxed">
                 {LEARNING_JOURNEY_STEPS[activeStepIndex].description}
               </p>
             </div>

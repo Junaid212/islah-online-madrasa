@@ -23,7 +23,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onPlay
   };
 
   return (
-    <section id="testimonials" className="relative py-20 lg:py-28 bg-[#F6F1E7]/70 border-t border-[#082D7B]/10 overflow-hidden">
+    <section id="testimonials" className="relative py-10 lg:py-18 bg-[#F6F1E7]/70 border-t border-[#082D7B]/10 overflow-hidden">
       <HeroBgPattern />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -34,9 +34,9 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onPlay
             <span className="text-xs uppercase tracking-[0.25em] text-[#C9A45C] font-semibold block mb-2">
               Parent Confidence
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#082D7B] font-normal tracking-tight text-balance">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#082D7B] font-bold tracking-tight text-balance">
               What Parents Say <br />
-              <span className="italic">About Islah Online Madrasa</span>
+              <span className="">About Islah Online Madrasa</span>
             </h2>
             <p className="font-sans text-sm sm:text-base text-[#151918]/70 mt-3">
               Real reflections from families who entrust their children's Qur'an journey to our instructors.
@@ -44,7 +44,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onPlay
           </div>
 
           {/* Scroll Navigation Buttons */}
-          <div className="flex items-center gap-3 self-end">
+          {/* <div className="flex items-center gap-3 self-end">
             <button
               onClick={scrollLeft}
               className="w-10 h-10 rounded-full border border-[#082D7B]/20 bg-white hover:bg-[#082D7B] hover:text-white text-[#082D7B] flex items-center justify-center transition-colors shadow-2xs cursor-pointer"
@@ -59,7 +59,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onPlay
             >
               <ChevronRight className="w-5 h-5" />
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* Horizontal Scrollable Carousel */}
@@ -95,9 +95,9 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onPlay
               </div>
 
               {/* Highlight Quote */}
-              <p className="font-serif text-base sm:text-lg text-[#082D7B] font-semibold mb-3 leading-snug">
+              {/* <p className=" text-base sm:text-md text-[#082D7B] font-semibold mb-3 leading-snug">
                 "{item.keyHighlight}"
-              </p>
+              </p> */}
 
               {/* Full Content */}
               <p className="text-xs sm:text-sm text-[#151918]/75 leading-relaxed font-sans mb-6">
@@ -125,9 +125,9 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onPlay
         </div>
 
         {/* Verification transparency note */}
-        <div className="mt-8 text-center text-xs text-[#151918]/50">
+        {/* <div className="mt-8 text-center text-xs text-[#151918]/50">
           * Representative parent experiences. Client testimonials will be verified upon formal onboarding updates.
-        </div>
+        </div> */}
 
       </div>
     </section>

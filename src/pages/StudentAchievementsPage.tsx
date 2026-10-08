@@ -189,7 +189,7 @@ export const StudentAchievementsPage: React.FC<StudentAchievementsPageProps> = (
 
   return (
     <div className="min-h-screen bg-[#FBF9F5] text-[#151918]">
-      
+
       {/* 1. HERO INNER BANNER */}
       <InnerBanner
         title="Inspiring Student Achievements"
@@ -203,7 +203,7 @@ export const StudentAchievementsPage: React.FC<StudentAchievementsPageProps> = (
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
+
             {/* Left Narrative (7 cols) */}
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-4">
@@ -254,10 +254,10 @@ export const StudentAchievementsPage: React.FC<StudentAchievementsPageProps> = (
             <div className="lg:col-span-5">
               <div className="relative">
                 <div className="absolute -inset-2 bg-gradient-to-r from-[#082D7B]/15 to-[#C9A45C]/20 rounded-3xl blur-xl" />
-                
+
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white bg-white">
                   <img
-                    src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=80"
+                    src="https://i.pinimg.com/736x/2e/ef/dc/2eefdc096c3bfce17ef597be49b5fbbd.jpg"
                     alt="Student holding Quran graduation certificate with pride"
                     className="w-full h-80 sm:h-96 object-cover"
                     loading="lazy"
@@ -285,7 +285,7 @@ export const StudentAchievementsPage: React.FC<StudentAchievementsPageProps> = (
       {/* 3. SECTION 2: QUR'AN RECITATION HIGHLIGHTS */}
       <section className="relative py-16 sm:py-24 bg-white border-t border-[#082D7B]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-3">
               <Volume2 className="w-3.5 h-3.5 text-[#C9A45C]" />
@@ -334,11 +334,10 @@ export const StudentAchievementsPage: React.FC<StudentAchievementsPageProps> = (
                   <div className="pt-4 border-t border-[#082D7B]/10 flex items-center justify-between gap-4">
                     <button
                       onClick={() => toggleAudio(rec.id)}
-                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                        isPlaying
+                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${isPlaying
                           ? 'bg-[#C9A45C] text-[#082D7B]'
                           : 'bg-[#082D7B] text-white hover:bg-[#062360]'
-                      }`}
+                        }`}
                     >
                       {isPlaying ? (
                         <>
@@ -373,7 +372,7 @@ export const StudentAchievementsPage: React.FC<StudentAchievementsPageProps> = (
         <HeroBgPattern opacity={0.03} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-3">
               <BookOpen className="w-3.5 h-3.5 text-[#C9A45C]" />
@@ -425,7 +424,7 @@ export const StudentAchievementsPage: React.FC<StudentAchievementsPageProps> = (
       {/* 5. SECTION 4: DUAS & ARABIC CONVERSATION */}
       <section className="relative py-16 sm:py-24 bg-white border-t border-[#082D7B]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-3">
               <Sparkles className="w-3.5 h-3.5 text-[#C9A45C]" />
@@ -486,7 +485,7 @@ export const StudentAchievementsPage: React.FC<StudentAchievementsPageProps> = (
         <HeroBgPattern opacity={0.03} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-3">
               <Award className="w-3.5 h-3.5 text-[#C9A45C]" />
@@ -539,7 +538,7 @@ export const StudentAchievementsPage: React.FC<StudentAchievementsPageProps> = (
         <HeroBgPattern isDark opacity={0.06} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs text-[#C9A45C] font-semibold mb-3">
               <Quote className="w-3.5 h-3.5" />
@@ -584,7 +583,7 @@ export const StudentAchievementsPage: React.FC<StudentAchievementsPageProps> = (
       </section>
 
       {/* 8. MAJOR CTA: START YOUR CHILD'S LEARNING JOURNEY */}
-      <section className="relative py-20 sm:py-24 bg-gradient-to-br from-[#082D7B] via-[#0D2D72] to-[#0568BD] text-white text-center overflow-hidden">
+      {/* <section className="relative py-20 sm:py-24 bg-gradient-to-br from-[#082D7B] via-[#0D2D72] to-[#0568BD] text-white text-center overflow-hidden">
         <HeroBgPattern isDark opacity={0.07} />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -623,7 +622,7 @@ export const StudentAchievementsPage: React.FC<StudentAchievementsPageProps> = (
             Free 1-on-1 assessment • Tailored pace • Certified Islamic scholars
           </div>
         </div>
-      </section>
+      </section> */}
 
     </div>
   );

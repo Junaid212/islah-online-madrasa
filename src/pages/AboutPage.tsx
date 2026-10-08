@@ -665,60 +665,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           </div>
         </div>
       </section>
-
-      {/* ============================================================== */}
-      {/* 7. MAJOR CALL TO ACTION: DISCOVER OUR CURRICULUM               */}
-      {/* ============================================================== */}
-      <section className="relative py-20 sm:py-28 bg-gradient-to-br from-[#082D7B] via-[#0D2D72] to-[#001E3C] text-white overflow-hidden">
-        <HeroBgPattern isDark opacity={0.07} />
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#C9A45C]/40 text-xs text-[#E3C37A] font-semibold mb-6">
-            <Sparkles className="w-4 h-4 text-[#C9A45C]" />
-            <span className="uppercase tracking-widest text-[10px] sm:text-xs">Take the Next Step</span>
-          </div>
-
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
-            Discover Our Comprehensive Islamic Curriculum
-          </h2>
-
-          <p className="font-sans text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto mb-10">
-            From foundational Arabic phonetics and measured Tajweed to clear Aqeedah, Seerah, daily Sunnah prayers, and character workshops. Explore what your child will learn at each milestone.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            {/* Primary CTA: Discover Our Curriculum */}
-            <button
-              onClick={() => navigate('/#courses')}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-sm font-bold text-[#082D7B] bg-[#C9A45C] hover:bg-white transition-all shadow-xl hover:shadow-2xl active:scale-95 cursor-pointer"
-            >
-              <span>Discover Our Curriculum</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
-            {/* Secondary CTA: Book Free Trial */}
-            <button
-              onClick={() => onOpenTrialModal()}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 transition-all cursor-pointer"
-            >
-              <span>Book a Free Trial Session</span>
-            </button>
-
-            {/* Tertiary: WhatsApp */}
-            <button
-              onClick={onOpenWhatsApp}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full text-sm font-semibold text-white/90 hover:text-white transition-colors cursor-pointer"
-            >
-              <MessageCircle className="w-4 h-4 text-[#25D366]" />
-              <span>Chat on WhatsApp</span>
-            </button>
-          </div>
-
-          <div className="mt-8 text-xs text-white/60">
-            No credit card required • Complimentary 1-on-1 assessment • Tailored placement
-          </div>
-        </div>
-      </section>
+      
 
     </div>
   );

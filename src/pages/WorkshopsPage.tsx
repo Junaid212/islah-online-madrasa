@@ -552,7 +552,7 @@ export const WorkshopsPage: React.FC<WorkshopsPageProps> = ({
       </section>
 
       {/* 8. CTA SECTION: EXPLORE STUDENT ACHIEVEMENTS */}
-      <section className="relative py-20 sm:py-24 bg-gradient-to-br from-[#082D7B] via-[#0D2D72] to-[#0568BD] text-white text-center overflow-hidden">
+      {/* <section className="relative py-20 sm:py-24 bg-gradient-to-br from-[#082D7B] via-[#0D2D72] to-[#0568BD] text-white text-center overflow-hidden">
         <HeroBgPattern isDark opacity={0.07} />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -586,7 +586,7 @@ export const WorkshopsPage: React.FC<WorkshopsPageProps> = ({
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
     </div>
   );
