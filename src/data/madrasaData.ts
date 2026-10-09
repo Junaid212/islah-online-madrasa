@@ -16,6 +16,8 @@ export interface Teacher {
   id: string;
   name: string;
   title: string;
+  designation?: string;
+  image?: string;
   qualification: string;
   specialisation: string;
   bio: string;
@@ -316,33 +318,75 @@ export const TEACHING_METHOD_STEPS = [
 export const TEACHERS: Teacher[] = [
   {
     id: "teacher-1",
-    name: "[SENIOR QARI & USTADH]",
+    name: "Shaykh Ahmad Al-Azhari",
     title: "Head of Tajweed & Recitation",
-    qualification: "[CERTIFIED IJAZAH IN QURANIC RECITATION]",
-    specialisation: "Tajweed Mastery, Hafs 'an 'Asim, Child Pedagogy",
-    bio: "Dedicated Quran teacher with extensive experience mentoring young English-speaking students across the UK, North America, and Europe. Known for patient encouragement and precision in Makharij.",
-    experiencePlaceholder: "[YEARS OF TEACHING EXPERIENCE]",
+    designation: "Head of Tajweed & Recitation",
+    image: "/assets/img/teacher-1.jpg",
+    qualification: "Certified Ijazah in Ten Minor Qira'at (Al-Azhar Al-Sharif)",
+    specialisation: "Tajweed Mastery, Hafs 'an 'Asim, Tarteel & Child Pedagogy",
+    bio: "Dedicated senior Quran teacher with over 12 years of experience mentoring students worldwide. Celebrated for patient encouragement, deep phonetics mastery, and warm rapport with children.",
+    experiencePlaceholder: "12+ Years Experience",
     languages: ["English", "Arabic", "Urdu"]
   },
   {
     id: "teacher-2",
-    name: "[CERTIFIED USTADHA]",
+    name: "Ustadha Fatima Al-Mansoor",
     title: "Senior Female Quran & Hifz Educator",
-    qualification: "[IJAZAH IN RECITATION & ARABIC STUDIES]",
-    specialisation: "Noorani Qaida, Girls Hifz, Islamic Studies for Children",
-    bio: "Passionate educator specializing in early childhood Arabic phonetics and gentle memorization techniques. Helps young girls build strong, affectionate attachments to the Holy Quran.",
-    experiencePlaceholder: "[YEARS OF TEACHING EXPERIENCE]",
+    designation: "Senior Female Quran & Hifz Educator",
+    image: "/assets/img/teacher-5.jpg",
+    qualification: "Sanad in Recitation & B.A. in Islamic Studies",
+    specialisation: "Noorani Qaida, Girls' Hifz Circle, Early Childhood Phonetics",
+    bio: "Specializes in early childhood Arabic phonetics and foundational Quran literacy. Creates an encouraging, gentle learning space that nurtures an enduring, affectionate love for the Holy Quran.",
+    experiencePlaceholder: "9+ Years Experience",
     languages: ["English", "Arabic"]
   },
   {
     id: "teacher-3",
-    name: "[USTADH & ISLAMIC STUDIES MENTOR]",
-    title: "Instructor of Seerah, Aqeedah & Adab",
-    qualification: "[DEGREE IN ISLAMIC JURISPRUDENCE & HADITH STUDIES]",
-    specialisation: "Prophetic Biography, Youth Character Development, Daily Duas",
-    bio: "Engaging storyteller and Islamic mentor who translates classical knowledge into relatable, practical moral lessons for modern Muslim children and teenagers.",
-    experiencePlaceholder: "[YEARS OF TEACHING EXPERIENCE]",
+    name: "Ustadh Tariq Al-Madani",
+    title: "Instructor of Seerah & Adab",
+    designation: "Instructor of Seerah & Adab",
+    image: "/assets/img/teacher-3.jpg",
+    qualification: "Degree in Usul al-Din (Islamic University of Madinah)",
+    specialisation: "Prophetic Biography, Youth Character Development, Daily Sunnah",
+    bio: "Dynamic Islamic mentor who connects classical Islamic wisdom to the everyday challenges of modern Muslim youth, instilling high moral character, prayer discipline, and spiritual confidence.",
+    experiencePlaceholder: "7+ Years Experience",
     languages: ["English", "Arabic"]
+  },
+  {
+    id: "teacher-4",
+    name: "Ustadha Maryam Al-Hashemi",
+    title: "Qaida & Early Phonetics Specialist",
+    designation: "Qaida & Early Phonetics Specialist",
+    image: "/assets/img/teacher-1.jpg",
+    qualification: "Ijazah in Noorani Qaida & Child Education Diploma",
+    specialisation: "Pronunciation Fundamentals, Interactive Letter Recognition, Child Motivation",
+    bio: "Expert in early childhood Quran foundation. Gentle, patient and creative with beginner learners starting their first Arabic letters.",
+    experiencePlaceholder: "8+ Years Experience",
+    languages: ["English", "Arabic"]
+  },
+  {
+    id: "teacher-5",
+    name: "Qari Zayd Al-Iraqi",
+    title: "Senior Tarteel & Maqamat Instructor",
+    designation: "Senior Tarteel & Maqamat Instructor",
+    image: "/assets/img/teacher-5.jpg",
+    qualification: "Master of Quranic Sciences & Dual Ijazah",
+    specialisation: "Advanced Tajweed, Melodic Recitation (Maqamat), Breath Control",
+    bio: "Master recitation instructor guiding advanced youth and adult students in melodic beautification and mastery of recitation rules.",
+    experiencePlaceholder: "11+ Years Experience",
+    languages: ["English", "Arabic"]
+  },
+  {
+    id: "teacher-6",
+    name: "Ustadha Aisha Rahman",
+    title: "Youth Mentorship & Islamic Studies",
+    designation: "Youth Mentorship & Islamic Studies",
+    image: "/assets/img/teacher-3.jpg",
+    qualification: "B.A. in Islamic Jurisprudence & Youth Counselling",
+    specialisation: "Islamic History, Contemporary Morals, Daily Duas & Fiqh Basics",
+    bio: "Dedicated mentor connecting Islamic morals with modern teen experiences, nurturing self-confidence, identity, and love for prayer.",
+    experiencePlaceholder: "6+ Years Experience",
+    languages: ["English", "Arabic", "Urdu"]
   }
 ];
 

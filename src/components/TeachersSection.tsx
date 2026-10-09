@@ -46,10 +46,14 @@ export const TeachersSection: React.FC = () => {
 
                 {/* Stylized Scholarly Silhouette & Monogram */}
                 <div className="relative z-10 flex flex-col items-center text-center my-auto">
-                  <div className="w-20 h-20 rounded-full border-2 border-[#C9A45C]/50 bg-[#082D7B] flex items-center justify-center shadow-inner mb-2">
-                    <span className="font-serif text-2xl text-[#C9A45C] font-bold">
-                      {teacher.name.replace('[', '').charAt(0)}
-                    </span>
+                  <div className="w-20 h-20 rounded-full border-2 border-[#C9A45C]/50 bg-[#082D7B] flex items-center justify-center shadow-inner mb-2 overflow-hidden">
+                    {teacher.image ? (
+                      <img src={teacher.image} alt={teacher.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <span className="font-serif text-2xl text-[#C9A45C] font-bold">
+                        {teacher.name.replace('[', '').charAt(0)}
+                      </span>
+                    )}
                   </div>
                   <p className="font-serif text-lg text-white font-medium">
                     {teacher.name}

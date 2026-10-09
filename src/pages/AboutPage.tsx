@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'motion/react';
 import {
   BookOpen,
   Award,
@@ -83,54 +84,56 @@ export const AboutPage: React.FC<AboutPageProps> = ({
     },
   ];
 
+  const [selectedMilestone, setSelectedMilestone] = useState<number>(3);
+
   const JOURNEY_MILESTONES = [
     {
+      phase: "01",
       period: "2016 – 2018",
-      title: "The Inception & Foundational Years",
-      highlight: "A Dedicated Vision for Expat Families",
-      description:
-        "Established by qualified Islamic educators who recognized that Muslim families in the UAE, Saudi Arabia, Qatar, and Gulf countries faced heavy school workloads and lacked structured, home-based Quranic instruction with authentic Tajweed.",
-      achievements: [
-        "First cohort of 40 students across Dubai, Riyadh & Doha",
-        "Pioneered 1-on-1 virtual Tajweed assessment protocols",
-        "Developed custom phonetics drills for English-speaking diaspora youth",
-      ],
+      yearShort: "'16",
+      title: "Foundational Inception",
+      highlight: "Dedicated Vision for Expat Families",
+      summary:
+        "Founded by Islamic educators to provide busy expat children authentic Tajweed without evening commute stress.",
+      icon: Compass,
+      metrics: ["40 First Students", "GCC Launch"],
+      isCurrent: false,
     },
     {
+      phase: "02",
       period: "2019 – 2021",
-      title: "Curriculum Standardization & 8 Core Areas",
-      highlight: "Beyond Lessons to Comprehensive Deen",
-      description:
-        "Transformed from Quran reading classes into a holistic 8-area Islamic studies syllabus—incorporating clear Aqeedah, loving Seerah, daily Sunnah Duas, and conversational Arabic.",
-      achievements: [
-        "Standardized milestone assessment framework for parent tracking",
-        "Introduced small-group character workshops and Salah verification clinics",
-        "Expanded direct WhatsApp teacher-parent communication channels",
-      ],
+      yearShort: "'19",
+      title: "8-Core Curriculum",
+      highlight: "Holistic Islamic Syllabus",
+      summary:
+        "Standardized beyond recitation into 8 core areas covering Aqeedah, Seerah, daily Sunnah Duas, and Arabic.",
+      icon: Layers,
+      metrics: ["8 Core Subjects", "Milestone Tracking"],
+      isCurrent: false,
     },
     {
+      phase: "03",
       period: "2022 – 2024",
-      title: "Pedagogical Excellence & Faculty Expansion",
-      highlight: "Formally Degreed & Child-Trained Scholars",
-      description:
-        "Instituted rigorous faculty standards requiring formal university degrees in Islamic Studies and ongoing pedagogical training in child psychology, empathy, and positive reinforcement.",
-      achievements: [
-        "100% vetted faculty holding formal degrees and certified Ijazahs",
-        "Gamified classroom tools, interactive quizzes, and speech competitions",
-        "Over 98% parent retention rate across 12 countries",
-      ],
+      yearShort: "'22",
+      title: "Faculty Rigor",
+      highlight: "Formally Degreed & Child-Trained",
+      summary:
+        "Instituted 100% university degree criteria, certified Ijazahs, and empathy-first pedagogical coaching.",
+      icon: GraduationCap,
+      metrics: ["100% Degreed Faculty", "Child Psychology Trained"],
+      isCurrent: false,
     },
     {
+      phase: "04",
       period: "2025 – Present",
-      title: "Entering Our 9th Academic Year",
-      highlight: "A Proven Foundation for Life",
-      description:
-        "Now celebrating our 9th academic year, Islah Online Madrasa stands as a trusted sanctuary of authentic Islamic education, empowering hundreds of confident Muslim children across the globe.",
-      achievements: [
-        "Over 8 years of proven instructional excellence",
-        "Comprehensive student progress dashboard & vocal audio logs",
-        "Global alumni excelling in public recitation and righteous character",
-      ],
+      yearShort: "'25",
+      title: "9th Academic Year",
+      highlight: "Global Sanctuary for Confident Youth",
+      summary:
+        "Celebrating 9 years of trusted online learning, guiding hundreds of confident Muslim children across 12+ nations.",
+      icon: Award,
+      metrics: ["12+ Countries", "98% Retention"],
+      isCurrent: true,
     },
   ];
 
@@ -149,347 +152,595 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       {/* ============================================================== */}
       {/* 2. SECTION 1: OUR STORY                                        */}
       {/* ============================================================== */}
-      <section className="relative py-16 sm:py-24 bg-[#FBF9F5] overflow-hidden">
-        <HeroBgPattern opacity={0.03} />
+      <section className="relative py-14 sm:py-20 lg:py-24 bg-white overflow-hidden">
+        <HeroBgPattern opacity={0.02} />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-center">
             
-            {/* Left Story Column (7 cols) */}
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-4">
-                <BookOpen className="w-3.5 h-3.5 text-[#C9A45C]" />
-                <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">Section 1 • Our Story</span>
-              </div>
+            {/* Left Story Column (Arch + Content) - 7 cols on lg */}
+            <div className="lg:col-span-7 flex flex-col md:flex-row items-center md:items-center gap-6 sm:gap-8 lg:gap-8 xl:gap-10">
+              
+              {/* Mobile Only: Horizontal Decorative Arch & Horizontal Animated "OUR STORY" */}
+              <div className="flex md:hidden items-center justify-start w-full mb-3 select-none">
+                <div className="relative inline-flex items-center h-[52px] sm:h-[60px] pl-3 pr-4">
+                  {/* Soft Slate-Blue Horizontal Arch Shape (covers "STORY" on the right) */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9, x: 20 }}
+                    whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.25 }}
+                    transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute right-0 top-0 bottom-0 w-[62%] bg-[#9FB2CC] rounded-r-full rounded-l-2xl shadow-xs"
+                  />
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] leading-tight tracking-tight mb-6">
-                Why Islah Online Madrasa Was Established
-              </h2>
-
-              <div className="space-y-4 text-sm sm:text-base text-[#151918]/80 leading-relaxed font-sans">
-                <p>
-                  Islah Online Madrasa was founded with a singular, urgent mission: <strong className="text-[#082D7B] font-semibold">to provide children with an authentic, structured, and joyful Islamic education that harmonizes with their modern academic lives.</strong>
-                </p>
-
-                <p>
-                  Living in the UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, Oman, and across western diaspora communities, Muslim parents strive tirelessly to give their children top-tier international schooling. Yet, many face a painful dilemma: heavy academic timetables, long commutes, and exhausting extracurricular schedules leave little room for traditional evening madrasa attendance.
-                </p>
-
-                <p>
-                  Families often turn to casual home tutors who lack formal pedagogy, or crowded community classes where individual Tajweed is overlooked and children feel disengaged. We recognized that Muslim children deserve better—they deserve inspiring scholars who understand their psychology, connect with their language, and guide them with patient affection.
-                </p>
-
-                <p>
-                  By harnessing secure, high-definition online classrooms, Islah bridges this gap completely. We bring vetted, formally degreed Islamic educators directly into your living room, seamlessly adapting to your family's timezone and routine without the stress of rush-hour travel.
-                </p>
-              </div>
-
-              {/* 3 Key Pillars of Our Story */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-6 border-t border-[#082D7B]/10">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#082D7B]/10 text-[#082D7B] flex items-center justify-center shrink-0 mt-0.5">
-                    <Globe className="w-4 h-4 text-[#C9A45C]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-[#082D7B]">GCC & Global Reach</h4>
-                    <p className="text-[11px] text-[#151918]/70 mt-0.5">Tailored for busy expat & diaspora routines.</p>
+                  {/* Horizontal "OUR STORY" Text */}
+                  <div 
+                    aria-label="OUR STORY"
+                    className="relative z-10 flex items-center font-sans font-black text-2xl sm:text-3xl tracking-[0.2em] uppercase select-none"
+                  >
+                    {[
+                      { char: 'O', inArch: false },
+                      { char: 'U', inArch: false },
+                      { char: 'R', inArch: false },
+                      { char: ' ', inArch: false },
+                      { char: 'S', inArch: true },
+                      { char: 'T', inArch: true },
+                      { char: 'O', inArch: true },
+                      { char: 'R', inArch: true },
+                      { char: 'Y', inArch: true },
+                    ].map((item, idx) => (
+                      <motion.span
+                        key={idx}
+                        initial={{ opacity: 0, y: 12, filter: 'blur(4px)', scale: 0.8 }}
+                        whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{
+                          duration: 0.45,
+                          delay: 0.15 + idx * 0.06,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className={`inline-block transition-colors ${
+                          item.inArch ? 'text-white drop-shadow-xs' : 'text-[#BAC7D6]'
+                        }`}
+                      >
+                        {item.char === ' ' ? '\u00A0' : item.char}
+                      </motion.span>
+                    ))}
                   </div>
                 </div>
+              </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#082D7B]/10 text-[#082D7B] flex items-center justify-center shrink-0 mt-0.5">
-                    <Clock className="w-4 h-4 text-[#C9A45C]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-[#082D7B]">Zero Commute Stress</h4>
-                    <p className="text-[11px] text-[#151918]/70 mt-0.5">Evening and weekend sessions from home.</p>
-                  </div>
+              {/* Desktop Only: Decorative Arch & Vertical Animated "OUR STORY" */}
+              <div className="hidden md:flex relative shrink-0 items-center justify-center w-[170px] sm:w-[210px] xl:w-[230px] h-[390px] sm:h-[450px] md:my-0 select-none">
+                {/* Soft Slate-Blue Arch Shape */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9, y: 25 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute top-2 left-0 w-[160px] sm:w-[195px] xl:w-[215px] h-[260px] sm:h-[310px] bg-[#9FB2CC] rounded-t-full rounded-b-3xl shadow-xs"
+                />
+
+                {/* Vertical "OUR STORY" Text with One-by-One Letter Animation */}
+                <div 
+                  aria-label="OUR STORY"
+                  className="relative z-10 -rotate-90 whitespace-nowrap flex items-center select-none font-sans font-black text-4xl sm:text-5xl lg:text-[52px] tracking-[0.24em] uppercase"
+                >
+                  {[
+                    { char: 'O', inArch: false },
+                    { char: 'U', inArch: false },
+                    { char: 'R', inArch: false },
+                    { char: ' ', inArch: false },
+                    { char: 'S', inArch: true },
+                    { char: 'T', inArch: true },
+                    { char: 'O', inArch: true },
+                    { char: 'R', inArch: true },
+                    { char: 'Y', inArch: true },
+                  ].map((item, idx) => (
+                    <motion.span
+                      key={idx}
+                      initial={{ opacity: 0, y: 18, filter: 'blur(5px)', scale: 0.75 }}
+                      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{
+                        duration: 0.45,
+                        delay: 0.18 + idx * 0.08,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
+                      className={`inline-block transition-colors ${
+                        item.inArch ? 'text-white drop-shadow-xs' : 'text-[#BAC7D6]'
+                      }`}
+                    >
+                      {item.char === ' ' ? '\u00A0' : item.char}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Main Story Content */}
+              <div className="flex-1 min-w-0">
+                {/* Badge: About Islah */}
+                <motion.div
+                  initial={{ opacity: 0, y: -16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF0FC] border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-4 shadow-2xs"
+                >
+                  <BookOpen className="w-3.5 h-3.5 text-[#082D7B]" />
+                  <span className="font-sans font-medium text-xs tracking-wide">About Islah</span>
+                </motion.div>
+
+                {/* Main Heading */}
+                <motion.h2
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  className="font-sans font-bold text-2xl sm:text-3xl lg:text-[36px] xl:text-[40px] text-[#082D7B] leading-[1.22] tracking-tight mb-5"
+                >
+                  Why Islah Online Madrasa Was Established
+                </motion.h2>
+
+                {/* Paragraphs with Staggered Entrance */}
+                <div className="space-y-3.5 text-xs sm:text-[13px] lg:text-[13.5px] text-[#4A5568] leading-[1.68] font-sans">
+                  <motion.p
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    Islah Online Madrasa was founded with a singular, urgent mission:{" "}
+                    <strong className="text-[#082D7B] font-bold">
+                      to provide children with an authentic, structured, and joyful Islamic education that harmonizes with their modern academic lives.
+                    </strong>
+                  </motion.p>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  >
+                    Muslim families across the Gulf and Western communities often struggle to balance busy academic schedules with traditional madrasa education.
+                  </motion.p>
+
+                  {/* <motion.p
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                  >
+                    Families often turn to casual home tutors who lack formal pedagogy, or crowded community classes where individual Tajweed is overlooked and children feel disengaged. We recognized that Muslim children deserve better—they deserve inspiring scholars who understand their psychology, connect with their language, and guide them with patient affection.
+                  </motion.p> */}
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                  >
+                    Islah makes Islamic learning accessible through secure online classes led by qualified educators, with flexible timings that fit your family’s routine—without the need to commute.
+                  </motion.p>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#082D7B]/10 text-[#082D7B] flex items-center justify-center shrink-0 mt-0.5">
-                    <Heart className="w-4 h-4 text-[#C9A45C]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-[#082D7B]">Loving Mentorship</h4>
-                    <p className="text-[11px] text-[#151918]/70 mt-0.5">Teachers who inspire genuine love for Allah.</p>
-                  </div>
+                {/* 3 Pillars in a Horizontal Row */}
+                <div className="grid grid-cols-3 sm:grid-cols-3 gap-3.5 lg:gap-4 mt-6 pt-2">
+                  {[
+                    {
+                      icon: Globe,
+                      title: "GCC & Global Reach",
+                      desc: "Tailored for busy expat & diaspora routines.",
+                    },
+                    {
+                      icon: Clock,
+                      title: "Zero Commute Stress",
+                      desc: "Evening and weekend sessions from home.",
+                    },
+                    {
+                      icon: Heart,
+                      title: "Loving Mentorship",
+                      desc: "Teachers who inspire genuine love for Allah.",
+                    },
+                  ].map((pillar, idx) => {
+                    const Icon = pillar.icon;
+                    return (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.5, delay: 0.58 + idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                        className="flex items-start gap-2.5"
+                      >
+                        <div className="w-7 h-7 rounded-full bg-[#EAF0FC] text-[#C9A45C] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                          <Icon className="w-3.5 h-3.5 text-[#C9A45C]" />
+                        </div>
+                        <div>
+                          <h4 className="text-[12px] font-bold text-[#082D7B] leading-tight">
+                            {pillar.title}
+                          </h4>
+                          {/* <p className="text-[10.5px] text-[#637381] mt-0.5 leading-snug">
+                            {pillar.desc}
+                          </p> */}
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
 
-            {/* Right Feature Card Showcase (5 cols) */}
+            {/* Right Story Column: Bookshelf Alcove Image with Slide-from-Left Animation */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl bg-gradient-to-br from-[#082D7B] via-[#0D2D72] to-[#0568BD] p-8 sm:p-10 text-white shadow-2xl border border-white/15 overflow-hidden">
-                <HeroBgPattern isDark opacity={0.08} />
-
-                <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-[#C9A45C] mb-6 border border-white/20">
-                    <ShieldCheck className="w-6 h-6" />
-                  </div>
-
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#C9A45C]">
-                    The Need We Fulfill
-                  </span>
-
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-2 mb-4 leading-snug">
-                    Balancing Rigorous Academics with Uncompromising Faith
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-white/80 leading-relaxed mb-6 font-sans">
-                    Modern schooling demands hours of focused study. Our structured, bite-sized sessions ensure that learning the Qur'an and Sunnah feels refreshing, joyful, and deeply rewarding—never an added burden.
-                  </p>
-
-                  <div className="space-y-3 pt-6 border-t border-white/15">
-                    {[
-                      "Flexible scheduling around school exams & sports",
-                      "Direct WhatsApp voice notes & progress updates",
-                      "Gentle vocal correction without criticism",
-                      "1-on-1 and small interactive classes (max 4-5)",
-                    ].map((item, idx) => (
-                      <div key={idx} className="flex items-center gap-2.5 text-xs text-white/90">
-                        <CheckCircle2 className="w-4 h-4 text-[#C9A45C] shrink-0" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-8 pt-6 border-t border-white/15">
-                    <button
-                      onClick={() => onOpenTrialModal()}
-                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-xs font-bold text-[#082D7B] bg-[#C9A45C] hover:bg-white transition-all shadow-md cursor-pointer"
-                    >
-                      <span>Experience a Free Trial Session</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, x: -70 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                className="relative rounded-[28px] sm:rounded-[36px] lg:rounded-[44px] overflow-hidden shadow-2xl bg-[#F0EDE6] border border-black/5"
+              >
+                <img
+                  src="/assets/img/about-story.webp"
+                  alt="Classical Islamic books in traditional arched alcove at Islah Online Madrasa"
+                  className="w-full h-auto object-cover object-center block"
+                  loading="eager"
+                />
+              </motion.div>
             </div>
 
           </div>
         </div>
       </section>
 
+
       {/* ============================================================== */}
       {/* 3. SECTION 2: OUR JOURNEY (ENTERING THE 9th YEAR)              */}
       {/* ============================================================== */}
-      <section className="relative py-16 sm:py-24 bg-white border-y border-[#082D7B]/10 overflow-hidden">
-        <HeroBgPattern opacity={0.02} />
+      <section className="relative py-20 sm:py-28 bg-[#FAF8F5] border-y border-[#082D7B]/10 overflow-hidden">
+        <HeroBgPattern opacity={0.025} />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-4">
-              <Calendar className="w-3.5 h-3.5 text-[#C9A45C]" />
-              <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">Section 2 • Our Journey</span>
-            </div>
+        {/* Ambient atmospheric lighting */}
+        <div 
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[360px] bg-gradient-to-r from-[#082D7B]/5 via-[#C9A45C]/10 to-[#082D7B]/5 rounded-full blur-3xl pointer-events-none" 
+          aria-hidden="true"
+        />
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] tracking-tight mb-4">
-              Entering Our 9th Academic Year
-            </h2>
-
-            <p className="font-sans text-sm sm:text-base text-[#151918]/75 leading-relaxed">
-              From our humble beginning with a handful of families in 2016 to a globally trusted online institution, explore the deliberate growth of our teaching team, curriculum, and educational standards.
-            </p>
-          </div>
-
-          {/* Timeline Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {JOURNEY_MILESTONES.map((milestone, idx) => (
-              <div
-                key={idx}
-                className="relative rounded-2xl bg-[#FBF9F5] border border-[#082D7B]/12 p-6 flex flex-col justify-between hover:shadow-xl hover:border-[#C9A45C] transition-all duration-300 group"
-              >
-                <div>
-                  {/* Period Badge */}
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#082D7B] text-white text-[11px] font-bold mb-4">
-                    <Clock className="w-3 h-3 text-[#C9A45C]" />
-                    <span>{milestone.period}</span>
-                  </div>
-
-                  <h3 className="font-serif text-lg font-bold text-[#082D7B] mb-1.5 leading-snug group-hover:text-[#0568BD] transition-colors">
-                    {milestone.title}
-                  </h3>
-
-                  <div className="text-xs font-semibold text-[#C9A45C] mb-3">
-                    {milestone.highlight}
-                  </div>
-
-                  <p className="text-xs text-[#151918]/75 leading-relaxed mb-5 font-sans">
-                    {milestone.description}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-[#082D7B]/10 space-y-2">
-                  {milestone.achievements.map((ach, aIdx) => (
-                    <div key={aIdx} className="flex items-start gap-2 text-[11px] text-[#151918]/85">
-                      <Check className="w-3.5 h-3.5 text-[#082D7B] shrink-0 mt-0.5" />
-                      <span>{ach}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom Trust Banner */}
-          <div className="mt-12 rounded-2xl bg-gradient-to-r from-[#082D7B]/6 via-[#C9A45C]/15 to-[#082D7B]/6 border border-[#082D7B]/12 p-6 text-center max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-left">
-              <h4 className="font-serif text-base font-bold text-[#082D7B]">
-                Nearly a Decade of Tested, Consistent Trust
-              </h4>
-              <p className="text-xs text-[#151918]/75 mt-0.5">
-                Over 98% of parents recommend Islah to family and friends.
-              </p>
-            </div>
-            <button
-              onClick={onOpenWhatsApp}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-[#082D7B] hover:bg-[#001E3C] transition-all cursor-pointer whitespace-nowrap shadow-sm"
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
+          
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: -16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF0FC] border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-4 shadow-2xs"
             >
-              <MessageCircle className="w-4 h-4 text-[#C9A45C]" />
-              <span>Inquire About Admissions</span>
-            </button>
+              <Sparkles className="w-3.5 h-3.5 text-[#C9A45C]" />
+              <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">
+                Our 9-Year Milestone Journey
+              </span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] tracking-tight mb-4"
+            >
+              Entering Our 9th Academic Year
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="font-sans text-sm sm:text-base text-[#151918]/70 leading-relaxed max-w-2xl mx-auto"
+            >
+              From a handful of expat families in 2016 to an internationally trusted online sanctuary—witness nine years of continuous dedication to authentic Islamic education.
+            </motion.p>
           </div>
+
+          {/* Interactive Journey Roadmap UI */}
+          <div className="relative">
+            
+            {/* Desktop Horizontal Connecting Rail */}
+            <div className="hidden lg:block absolute top-[48px] left-[10%] right-[10%] h-[3px] bg-gradient-to-r from-[#082D7B]/15 via-[#C9A45C]/40 to-[#082D7B]/20 rounded-full z-0">
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                className="h-full bg-gradient-to-r from-[#082D7B] via-[#C9A45C] to-[#082D7B] origin-left rounded-full shadow-xs"
+              />
+            </div>
+
+            {/* 4 Connected Milestone Stations Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 relative z-10">
+              {JOURNEY_MILESTONES.map((milestone, idx) => {
+                const Icon = milestone.icon;
+                const isSelected = selectedMilestone === idx;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{
+                      duration: 0.6,
+                      delay: 0.15 + idx * 0.1,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    onClick={() => setSelectedMilestone(idx)}
+                    className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 cursor-pointer group ${
+                      milestone.isCurrent
+                        ? "bg-gradient-to-b from-white via-white to-[#FDFBF7] border-2 border-[#C9A45C] shadow-xl hover:shadow-2xl hover:-translate-y-2"
+                        : isSelected
+                        ? "bg-white border-2 border-[#082D7B] shadow-xl hover:-translate-y-2"
+                        : "bg-white/95 backdrop-blur-xs border border-[#082D7B]/12 hover:border-[#C9A45C]/60 hover:shadow-xl hover:-translate-y-2"
+                    }`}
+                  >
+                    {/* Watermark of the Era year in corner */}
+                    <span className="absolute top-4 right-5 font-sans font-black text-4xl sm:text-5xl text-[#082D7B]/5 select-none pointer-events-none group-hover:text-[#C9A45C]/15 transition-colors">
+                      {milestone.yearShort}
+                    </span>
+
+                    <div>
+                      {/* Milestone Station Header */}
+                      <div className="flex items-center justify-between gap-3 mb-6">
+                        <div className="flex items-center gap-3">
+                          {/* Station Medal Pin */}
+                          <div
+                            className={`w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-xs ${
+                              milestone.isCurrent
+                                ? "bg-[#082D7B] text-[#C9A45C] ring-4 ring-[#C9A45C]/25"
+                                : isSelected
+                                ? "bg-[#082D7B] text-white ring-4 ring-[#082D7B]/15"
+                                : "bg-[#EAF0FC] text-[#082D7B] group-hover:bg-[#082D7B] group-hover:text-white"
+                            }`}
+                          >
+                            <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+                          </div>
+
+                          <div className="flex flex-col">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-[#082D7B]/60">
+                              Phase {milestone.phase}
+                            </span>
+                            <span className="text-xs font-bold text-[#082D7B]">
+                              {milestone.period}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Current Era Pulse Badge */}
+                        {/* {milestone.isCurrent && (
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#C9A45C]/15 text-[#9E7728] border border-[#C9A45C]/30 shadow-2xs">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#C9A45C] animate-ping" />
+                            <span>Current</span>
+                          </span>
+                        )} */}
+                      </div>
+
+                      {/* Milestone Title */}
+                      <h3 className="font-serif text-lg font-bold text-[#082D7B] mb-1 leading-snug group-hover:text-[#0568BD] transition-colors">
+                        {milestone.title}
+                      </h3>
+
+                      {/* Subtitle / Highlight */}
+                      <p className="text-[11px] font-semibold text-[#C9A45C] mb-3">
+                        {milestone.highlight}
+                      </p>
+
+                      {/* Minimal 1-Sentence Summary */}
+                      <p className="font-sans text-xs text-[#151918]/70 leading-relaxed mb-6">
+                        {milestone.summary}
+                      </p>
+                    </div>
+
+                    {/* Minimal Metric Tags at bottom */}
+                    {/* <div className="pt-4 border-t border-[#082D7B]/8 flex flex-wrap items-center gap-2">
+                      {milestone.metrics.map((metric, mIdx) => (
+                        <span
+                          key={mIdx}
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[10.5px] font-medium bg-[#082D7B]/5 text-[#082D7B] group-hover:bg-[#082D7B]/10 transition-colors"
+                        >
+                          <Check className="w-3 h-3 text-[#C9A45C]" />
+                          <span>{metric}</span>
+                        </span>
+                      ))}
+                    </div> */}
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Bottom Journey Trust & Action Bar */}
+          {/* <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-14 rounded-3xl bg-gradient-to-r from-[#082D7B] via-[#0B3388] to-[#082D7B] text-white p-6 sm:p-8 shadow-2xl border border-white/15 relative overflow-hidden"
+          >
+            <HeroBgPattern isDark opacity={0.06} />
+
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8"> */}
+              
+              {/* Left stats counter */}
+              {/* <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 w-full lg:w-auto text-center sm:text-left">
+                <div>
+                  <div className="font-serif text-2xl sm:text-3xl font-bold text-[#DFBA74]">
+                    9th Year
+                  </div>
+                  <div className="text-[11px] text-white/75 mt-0.5 font-sans">
+                    Academic Cycle Live
+                  </div>
+                </div>
+
+                <div>
+                  <div className="font-serif text-2xl sm:text-3xl font-bold text-[#DFBA74]">
+                    12+
+                  </div>
+                  <div className="text-[11px] text-white/75 mt-0.5 font-sans">
+                    Countries Enrolled
+                  </div>
+                </div>
+
+                <div>
+                  <div className="font-serif text-2xl sm:text-3xl font-bold text-[#DFBA74]">
+                    98%
+                  </div>
+                  <div className="text-[11px] text-white/75 mt-0.5 font-sans">
+                    Parent Retention
+                  </div>
+                </div>
+
+                <div>
+                  <div className="font-serif text-2xl sm:text-3xl font-bold text-[#DFBA74]">
+                    100%
+                  </div>
+                  <div className="text-[11px] text-white/75 mt-0.5 font-sans">
+                    Degreed Faculty
+                  </div>
+                </div>
+              </div> */}
+
+              {/* Right CTA Button */}
+              {/* <div className="shrink-0 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <button
+                  onClick={onOpenWhatsApp}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full text-xs font-bold text-[#082D7B] bg-[#C9A45C] hover:bg-white hover:text-[#082D7B] transition-all shadow-md cursor-pointer whitespace-nowrap"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Begin Your Child's Journey</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div> */}
+
+            {/* </div>
+          </motion.div> */}
+
         </div>
       </section>
 
       {/* ============================================================== */}
       {/* 4. SECTION 3: OUR VISION & SECTION 4: OUR MISSION              */}
       {/* ============================================================== */}
-      <section className="relative py-20 sm:py-28 bg-[#082D7B] text-white overflow-hidden">
+      <section className="relative py-20 sm:py-28 bg-[#072464] text-white overflow-hidden">
         <HeroBgPattern isDark opacity={0.06} />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          {/* Header */}
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-[#C9A45C]/30 text-xs text-[#C9A45C] mb-3">
-              <Compass className="w-3.5 h-3.5" />
-              <span>Section 3 & 4 • Vision & Mission</span>
+          {/* Subtle Section Header */}
+          {/* <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: -16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs text-[#BACCE8] font-semibold mb-3 shadow-2xs"
+            >
+              <Compass className="w-3.5 h-3.5 text-[#C9A45C]" />
+              <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">
+                Our Purpose & Foundation
+              </span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight"
+            >
+              Our Mission & Vision
+            </motion.h2>
+          </div> */}
+
+          {/* Two-Card Outer Frame matching reference image */}
+          <div className="rounded-[32px] sm:rounded-[44px] p-2.5 sm:p-4 bg-[#051C4D]/70 border border-white/12 shadow-2xl backdrop-blur-xs">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 lg:gap-5 items-stretch">
+              
+              {/* 1. MISSION CARD (Left, Deep Navy) */}
+              <motion.div
+                initial={{ opacity: 0, x: -35 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+                className="relative rounded-[26px] sm:rounded-[34px] bg-[#0A2663] border border-white/10 p-2 sm:p-2.5 overflow-hidden flex flex-col justify-between group hover:border-white/20 transition-all duration-300"
+              >
+                {/* Inner Inset Border Frame */}
+                <div className="relative rounded-[20px] sm:rounded-[26px] border border-[#BACCE8]/20 p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[360px] sm:min-h-[420px] lg:min-h-[460px] h-full overflow-hidden">
+                  
+                  {/* Mission Paragraph */}
+                  <p className="relative z-10 font-sans text-xs sm:text-[13.5px] lg:text-[15px] text-[#BACCE8] leading-[1.75] max-w-md select-text">
+                    We envision young Muslim generations who hold the Holy Qur'an deeply in their hearts, follow the authentic Sunnah with conviction, and embody noble prophetic character that protects their moral compass wherever life takes them.
+                  </p>
+
+                  {/* Bottom Row: MISSION Wordmark */}
+                  <div className="relative z-10 flex items-end justify-between mt-auto pt-8 sm:pt-12">
+                    <h3 className="font-sans font-black tracking-wider text-4xl sm:text-5xl lg:text-[56px] text-[#BACCE8] uppercase select-none leading-none">
+                      MISSION
+                    </h3>
+                  </div>
+
+                  {/* Target with Arrow Image (10.png) attached directly to the bottom right of card */}
+                  <div className="absolute right-0 bottom-0 select-none pointer-events-none group-hover:scale-105 transition-transform duration-300">
+                    <img
+                      src="/assets/img/10.png"
+                      alt="Mission Target"
+                      className="w-36 h-36 sm:w-48 sm:h-48 lg:w-66 lg:h-66 object-contain object-bottom-right"
+                    />
+                  </div>
+
+                </div>
+              </motion.div>
+
+              {/* 2. VISION CARD (Right, Soft Pastel Blue) */}
+              <motion.div
+                initial={{ opacity: 0, x: 35 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.75, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="relative rounded-[26px] sm:rounded-[34px] bg-[#BACCE8] p-2 sm:p-2.5 overflow-hidden flex flex-col justify-between group shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                {/* Inner Inset Border Frame */}
+                <div className="relative rounded-[20px] sm:rounded-[26px] border border-[#0A2663]/25 p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[360px] sm:min-h-[420px] lg:min-h-[460px] h-full overflow-hidden">
+                  
+                  {/* Vision Paragraph */}
+                  <p className="relative z-10 font-sans text-xs sm:text-[13.5px] lg:text-[15px] text-[#0A2663] leading-[1.75] max-w-md font-medium select-text">
+                    Our vision is to nurture confident Muslim children through authentic Islamic education, strong Aqeedah, practical daily Islamic habits, and engaging online classrooms that make learning meaningful, joyful, and impactful.
+                  </p>
+
+                  {/* Bottom Row: VISION Wordmark */}
+                  <div className="relative z-10 flex items-end justify-between mt-auto pt-8 sm:pt-12">
+                    <h3 className="font-sans font-black tracking-wider text-4xl sm:text-5xl lg:text-[56px] text-[#0A2663] uppercase select-none leading-none">
+                      VISION
+                    </h3>
+                  </div>
+
+                  {/* Stylized Eye Image (11.png) attached directly to the bottom right of card */}
+                  <div className="absolute right-0 bottom-0 select-none pointer-events-none group-hover:scale-105 transition-transform duration-300">
+                    <img
+                      src="/assets/img/11.png"
+                      alt="Vision Eye"
+                      className="w-36 h-36 sm:w-48 sm:h-48 lg:w-56 lg:h-56 object-contain object-bottom-right"
+                    />
+                  </div>
+
+                </div>
+              </motion.div>
+
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-              Our Vision & Mission
-            </h2>
-            <p className="font-sans text-sm sm:text-base text-white/75 mt-3">
-              Anchored in divine purpose, serving Muslim families with uncompromised sincerity and educational rigor.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-            
-            {/* OUR VISION CARD (5 cols) */}
-            <div className="lg:col-span-5 rounded-3xl bg-gradient-to-b from-[#0D2D72] to-[#082923] border border-[#C9A45C]/30 p-8 sm:p-10 shadow-2xl relative overflow-hidden flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#C9A45C]/15 border border-[#C9A45C]/30 flex items-center justify-center text-[#C9A45C]">
-                    <Eye className="w-6 h-6" />
-                  </div>
-                  <span className="text-xs uppercase tracking-[0.2em] text-[#C9A45C] font-semibold">
-                    Our Vision
-                  </span>
-                </div>
-
-                <div className="font-arabic text-3xl text-[#C9A45C] mb-4">
-                  رُؤْيَتُنَا
-                </div>
-
-                <h3 className="font-serif text-2xl sm:text-3xl text-white font-bold leading-snug mb-6 text-balance">
-                  "Nurturing children who understand, practise, and implement Islam in daily life."
-                </h3>
-
-                <p className="text-sm text-white/80 leading-relaxed font-sans mb-8">
-                  We envision young Muslim generations who hold the Holy Qur'an deeply in their hearts, follow the authentic Sunnah with conviction, and embody noble prophetic character that protects their moral compass wherever life takes them.
-                </p>
-              </div>
-
-              <div className="space-y-3 pt-6 border-t border-white/10 text-xs text-white/90">
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#C9A45C]" />
-                  <span>Following the Qur'an & Authentic Sunnah strictly</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#C9A45C]" />
-                  <span>Developing beautiful character, manners & honesty</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#C9A45C]" />
-                  <span>Building confident Muslim identity in modern societies</span>
-                </div>
-              </div>
-            </div>
-
-            {/* OUR MISSION PILLARS (7 cols) */}
-            <div className="lg:col-span-7 flex flex-col justify-between">
-              <div className="mb-4">
-                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#C9A45C] font-bold mb-2">
-                  <Compass className="w-4 h-4" />
-                  <span>Our Four Mission Commitments</span>
-                </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug">
-                  How We Realize Our Vision Every Single Day
-                </h3>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                
-                {/* Mission 1 */}
-                <div className="rounded-2xl bg-white/5 border border-white/15 p-6 hover:bg-white/10 hover:border-[#C9A45C]/50 transition-all">
-                  <div className="w-9 h-9 rounded-lg bg-[#C9A45C]/20 text-[#C9A45C] flex items-center justify-center font-serif font-bold text-sm mb-3">
-                    01
-                  </div>
-                  <h4 className="font-serif text-base font-bold text-white mb-2">
-                    Structured & Authentic Islamic Education
-                  </h4>
-                  <p className="text-xs text-white/75 leading-relaxed font-sans">
-                    Providing a graded, step-by-step syllabus with clear milestones so parents witness continuous, measurable growth in reading, Tajweed, and Islamic knowledge.
-                  </p>
-                </div>
-
-                {/* Mission 2 */}
-                <div className="rounded-2xl bg-white/5 border border-white/15 p-6 hover:bg-white/10 hover:border-[#C9A45C]/50 transition-all">
-                  <div className="w-9 h-9 rounded-lg bg-[#C9A45C]/20 text-[#C9A45C] flex items-center justify-center font-serif font-bold text-sm mb-3">
-                    02
-                  </div>
-                  <h4 className="font-serif text-base font-bold text-white mb-2">
-                    Developing Strong Islamic Beliefs
-                  </h4>
-                  <p className="text-xs text-white/75 leading-relaxed font-sans">
-                    Instilling pure, unshakeable Aqeedah that gives children clear moral clarity, answers their natural questions with wisdom, and shields them against modern confusion.
-                  </p>
-                </div>
-
-                {/* Mission 3 */}
-                <div className="rounded-2xl bg-white/5 border border-white/15 p-6 hover:bg-white/10 hover:border-[#C9A45C]/50 transition-all">
-                  <div className="w-9 h-9 rounded-lg bg-[#C9A45C]/20 text-[#C9A45C] flex items-center justify-center font-serif font-bold text-sm mb-3">
-                    03
-                  </div>
-                  <h4 className="font-serif text-base font-bold text-white mb-2">
-                    Encouraging Practical Application
-                  </h4>
-                  <p className="text-xs text-white/75 leading-relaxed font-sans">
-                    Ensuring knowledge translates into action: verified physical Salah postures, spontaneous daily Duas, respect for parents, and truthful, modest conduct.
-                  </p>
-                </div>
-
-                {/* Mission 4 */}
-                <div className="rounded-2xl bg-white/5 border border-white/15 p-6 hover:bg-white/10 hover:border-[#C9A45C]/50 transition-all">
-                  <div className="w-9 h-9 rounded-lg bg-[#C9A45C]/20 text-[#C9A45C] flex items-center justify-center font-serif font-bold text-sm mb-3">
-                    04
-                  </div>
-                  <h4 className="font-serif text-base font-bold text-white mb-2">
-                    Engaging Learning Environment
-                  </h4>
-                  <p className="text-xs text-white/75 leading-relaxed font-sans">
-                    Creating vibrant, interactive virtual classrooms featuring discussions, quizzes, presentations, and competitions where children actively look forward to each class.
-                  </p>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
         </div>
       </section>
+
 
       {/* ============================================================== */}
       {/* 5. SECTION 5: OUR CORE VALUES                                  */}
@@ -563,14 +814,18 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       {/* ============================================================== */}
       {/* 6. SECTION 6: MEET OUR TEACHERS                                */}
       {/* ============================================================== */}
+      {/* ============================================================== */}
+      {/* 6. SECTION 6: MEET OUR TEACHERS                                */}
+      {/* ============================================================== */}
       <section className="relative py-16 sm:py-24 bg-white border-t border-[#082D7B]/10 overflow-hidden">
         <HeroBgPattern opacity={0.02} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-4">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-4">
               <Users className="w-3.5 h-3.5 text-[#C9A45C]" />
-              <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">Section 6 • Faculty & Standards</span>
+              <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">Faculty & Academic Standards</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] tracking-tight mb-4">
@@ -578,91 +833,67 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </h2>
 
             <p className="font-sans text-sm sm:text-base text-[#151918]/75 leading-relaxed">
-              Our educators are not casual tutors. They have completed formal Islamic degrees, have subject-matter mastery, and receive continuous pedagogical training in student interaction and child psychology.
+              Our educators are not casual tutors. Each teacher holds authentic Quranic Ijazahs, certified university degrees in Islamic Studies, and continuous training in child psychology.
             </p>
           </div>
 
-          {/* Teacher Standards Feature Callout */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="p-6 rounded-2xl bg-[#FBF9F5] border border-[#082D7B]/10">
-              <GraduationCap className="w-8 h-8 text-[#082D7B] mb-3" />
-              <h4 className="font-serif text-base font-bold text-[#082D7B] mb-1.5">
-                Formal Islamic University Degrees
-              </h4>
-              <p className="text-xs text-[#151918]/75 leading-relaxed font-sans">
-                Instructors hold accredited degrees in Shariah, Usul al-Din, or Hadith, alongside certified Ijazahs in Tajweed recitation.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-[#FBF9F5] border border-[#082D7B]/10">
-              <Heart className="w-8 h-8 text-[#082D7B] mb-3" />
-              <h4 className="font-serif text-base font-bold text-[#082D7B] mb-1.5">
-                Child Pedagogy & Psychology
-              </h4>
-              <p className="text-xs text-[#151918]/75 leading-relaxed font-sans">
-                Trained in patient encouragement, positive reinforcement, and engaging modern attention spans without harshness.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-[#FBF9F5] border border-[#082D7B]/10">
-              <Globe className="w-8 h-8 text-[#082D7B] mb-3" />
-              <h4 className="font-serif text-base font-bold text-[#082D7B] mb-1.5">
-                Bilingual Fluency & Cultural Empathy
-              </h4>
-              <p className="text-xs text-[#151918]/75 leading-relaxed font-sans">
-                Fluent in English and Arabic, understanding the daily realities and schooling pressures of GCC and global diaspora youth.
-              </p>
-            </div>
-          </div>
-
-          {/* Teacher Profiles Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Arched Faculty Cards Grid (Exact reference style: arched top, photo, name, designation) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 lg:gap-4.5">
             {TEACHERS.map((teacher) => (
               <div
                 key={teacher.id}
-                className="rounded-2xl bg-white border border-[#082D7B]/15 p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border-t-4 border-t-[#082D7B]"
+                onClick={() => onOpenTrialModal(teacher.designation || teacher.title)}
+                className="group relative cursor-pointer overflow-hidden rounded-t-full rounded-b-2xl sm:rounded-b-3xl h-[240px] sm:h-[290px] md:h-[430px] lg:h-[350px] bg-[#082D7B]/10 shadow-xs hover:shadow-xl transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-end"
               >
-                <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-[#082D7B]/10 text-[#082D7B] flex items-center justify-center font-serif text-lg font-bold">
-                      {teacher.title.includes('Female') ? 'U' : 'Q'}
-                    </div>
-                    <div>
-                      <h4 className="font-serif text-base font-bold text-[#082D7B]">
-                        {teacher.name}
-                      </h4>
-                      <p className="text-xs text-[#C9A45C] font-medium">
-                        {teacher.title}
-                      </p>
-                    </div>
+                {/* Full Bleed Portrait Image */}
+                {teacher.image ? (
+                  <img
+                    src={teacher.image}
+                    alt={`${teacher.name} - ${teacher.designation || teacher.title}`}
+                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-[#082D7B] text-[#C9A45C]">
+                    <span className="font-serif text-4xl font-bold">{teacher.name.charAt(0)}</span>
                   </div>
+                )}
 
-                  <div className="space-y-2 mb-4 text-xs font-sans">
-                    <div className="bg-[#FBF9F5] p-2.5 rounded-lg border border-[#082D7B]/8">
-                      <span className="font-semibold text-[#082D7B] block mb-0.5">Qualification:</span>
-                      <span className="text-[#151918]/80">{teacher.qualification}</span>
-                    </div>
-                    <div className="bg-[#FBF9F5] p-2.5 rounded-lg border border-[#082D7B]/8">
-                      <span className="font-semibold text-[#082D7B] block mb-0.5">Specialisation:</span>
-                      <span className="text-[#151918]/80">{teacher.specialisation}</span>
-                    </div>
-                  </div>
+                {/* Dark Vignette / Gradient Overlay (concentrated at bottom for text readability) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 via-35% to-transparent pointer-events-none" />
 
-                  <p className="text-xs text-[#151918]/75 leading-relaxed font-sans mb-4">
-                    {teacher.bio}
+                {/* Subtle Hover Glow Arch Border */}
+                <div className="absolute inset-0 rounded-t-full rounded-b-2xl sm:rounded-b-3xl border border-black/10 group-hover:border-[#C9A45C]/40 transition-colors pointer-events-none" />
+
+                {/* Teacher Name & Designation Overlay */}
+                <div className="relative z-10 p-3.5 sm:p-4.5 text-left">
+                  <h3 className="font-serif text-sm sm:text-base lg:text-[15px] xl:text-base font-bold text-white tracking-tight leading-snug drop-shadow-xs">
+                    {teacher.name}
+                  </h3>
+                  <p className="text-[11px] sm:text-xs text-white/75 font-normal mt-0.5 sm:mt-1 leading-tight">
+                    {teacher.designation || teacher.title}
                   </p>
-                </div>
-
-                <div className="pt-3 border-t border-[#082D7B]/10 flex items-center justify-between text-[11px] text-[#151918]/65">
-                  <span>Languages: {teacher.languages.join(', ')}</span>
-                  <span className="inline-flex items-center gap-1 font-semibold text-[#082D7B]">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#C9A45C]" />
-                    Verified Faculty
-                  </span>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Minimal Trust & Action Banner */}
+          {/* <div className="mt-12 sm:mt-14 p-4 sm:p-5 rounded-2xl bg-[#FBF9F5] border border-[#082D7B]/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3 text-left">
+              <ShieldCheck className="w-5 h-5 text-[#082D7B] shrink-0" />
+              <p className="text-xs text-[#151918]/75 font-sans">
+                <strong>Faculty Policy:</strong> All educators undergo verified Tajweed assessment and background safeguarding checks. Male and female instructors available.
+              </p>
+            </div>
+
+            <button
+              onClick={() => onOpenTrialModal('General Inquiry')}
+              className="px-5 py-2.5 rounded-xl bg-[#082D7B] text-white hover:bg-[#0A2663] font-semibold text-xs transition-colors shrink-0 cursor-pointer shadow-xs whitespace-nowrap"
+            >
+              Book Free Trial With Faculty
+            </button>
+          </div> */}
         </div>
       </section>
       
