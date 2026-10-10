@@ -428,7 +428,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] tracking-tight mb-4"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] tracking-tight mb-4"
             >
               Entering Our 9th Academic Year
             </motion.h2>
@@ -525,7 +525,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                       </div>
 
                       {/* Milestone Title */}
-                      <h3 className="font-serif text-lg font-bold text-[#082D7B] mb-1 leading-snug group-hover:text-[#0568BD] transition-colors">
+                      <h3 className=" text-lg font-bold text-[#082D7B] mb-1 leading-snug group-hover:text-[#0568BD] transition-colors">
                         {milestone.title}
                       </h3>
 
@@ -755,7 +755,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">Section 5 • Our Core Values</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] tracking-tight mb-4">
+            <h2 className=" text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] tracking-tight mb-4">
               The Principles That Guide Our Teaching
             </h2>
 
@@ -777,7 +777,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <div>
                     {/* Header */}
                     <div className="flex items-center justify-between mb-4">
-                      <span className="font-serif text-2xl font-bold text-[#C9A45C] tabular-nums">
+                      <span className=" text-2xl font-bold text-[#C9A45C] tabular-nums">
                         {val.number}.
                       </span>
                       <div className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center group-hover:bg-[#C9A45C] group-hover:text-[#082D7B] transition-colors">
@@ -789,7 +789,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                       {val.arabic}
                     </div>
 
-                    <h3 className="font-serif text-lg font-bold text-white mb-2 leading-snug">
+                    <h3 className="text-lg font-bold text-white mb-2 leading-snug">
                       {val.title}
                     </h3>
 
@@ -828,7 +828,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">Faculty & Academic Standards</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] tracking-tight mb-4">
+            <h2 className=" text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] tracking-tight mb-4">
               Meet Our Professional & Trained Teaching Team
             </h2>
 
@@ -855,7 +855,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   />
                 ) : (
                   <div className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-[#082D7B] text-[#C9A45C]">
-                    <span className="font-serif text-4xl font-bold">{teacher.name.charAt(0)}</span>
+                    <span className=" text-4xl font-bold">{teacher.name.charAt(0)}</span>
                   </div>
                 )}
 
@@ -867,7 +867,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
                 {/* Teacher Name & Designation Overlay */}
                 <div className="relative z-10 p-3.5 sm:p-4.5 text-left">
-                  <h3 className="font-serif text-sm sm:text-base lg:text-[15px] xl:text-base font-bold text-white tracking-tight leading-snug drop-shadow-xs">
+                  <h3 className=" text-sm sm:text-base lg:text-[15px] xl:text-base font-bold text-white tracking-tight leading-snug drop-shadow-xs">
                     {teacher.name}
                   </h3>
                   <p className="text-[11px] sm:text-xs text-white/75 font-normal mt-0.5 sm:mt-1 leading-tight">

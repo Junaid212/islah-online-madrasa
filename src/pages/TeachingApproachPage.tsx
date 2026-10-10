@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   BookOpen,
   CheckCircle2,
@@ -14,7 +15,10 @@ import {
   Mic,
   Smile,
   Compass,
-  Check
+  Check,
+  LayoutGrid,
+  TrendingUp,
+  Layers
 } from 'lucide-react';
 import { InnerBanner } from '../components/InnerBanner';
 import { HeroBgPattern } from '../components/IslamicPattern';
@@ -30,11 +34,55 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
   onOpenWhatsApp,
 }) => {
   const navigate = useNavigate();
+  const [activeTrajectory, setActiveTrajectory] = useState<number>(2);
 
   useEffect(() => {
     document.title = "Our Online Islamic Teaching Approach | Islah Online Madrasa";
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
+
+  const TRAJECTORY_STAGES = [
+    {
+      step: "01",
+      name: "Knowledge",
+      arabic: "العلم",
+      tagline: "Authentic Text Foundation",
+      desc: "Sound classical knowledge rooted directly in the Holy Qur'an and verified Sunnah, taught with precision by formally certified scholars.",
+      appliedFocus: "Structured Tajweed phonetics, verified Hadith readings & foundational Aqeedah."
+    },
+    {
+      step: "02",
+      name: "Understanding",
+      arabic: "الفهم",
+      tagline: "Grasping Divine Wisdom",
+      desc: "Moving beyond rote repetition to unpack the context, translation, and wisdom (Hikmah) behind every commandment.",
+      appliedFocus: "Socratic reflection, interactive Seerah discussions & open question-and-answer."
+    },
+    {
+      step: "03",
+      name: "Practice",
+      arabic: "العمل",
+      tagline: "Living Daily Rituals",
+      desc: "Translating sacred knowledge into daily life through live demonstrations, correct Wudu postures, and independent five daily prayers.",
+      appliedFocus: "Hands-on Wudu checks, Salah posture corrections & daily Dua habit tracking."
+    },
+    {
+      step: "04",
+      name: "Character",
+      arabic: "الخُلق",
+      tagline: "Upright Prophetic Manners",
+      desc: "Cultivating heartfelt Islamic character: truthfulness (Sidq), modesty (Haya'), honoring parents, and resilience against peer pressure.",
+      appliedFocus: "Real-world ethical scenarios, kindness at home & personal accountability."
+    },
+    {
+      step: "05",
+      name: "Success",
+      arabic: "الفلاح",
+      tagline: "Enduring Spiritual Peace",
+      desc: "A grounded young Muslim who carries unshakeable love for Allah, moral confidence, and lasting success in Dunya and Akhirah.",
+      appliedFocus: "Autonomous prayer, lifelong love for the Qur'an & confident Muslim identity."
+    }
+  ];
 
   const PHILOSOPHY_STEPS = [
     {
@@ -148,116 +196,116 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
         subtitle="Islamic education is more than completing a syllabus—our goal is to turn sacred knowledge into living faith, everyday practice, and noble prophetic character."
       />
 
-      {/* 2. SECTION 1: INTRODUCTION & COMPARISON */}
-      <section className="relative py-16 sm:py-24 bg-[#FBF9F5] overflow-hidden">
-        <HeroBgPattern opacity={0.03} />
+      {/* 2. SECTION 1: SIMPLE, EASY & ENGAGING LEARNING (AS REQUESTED) */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6 }}
+        className="relative py-12 sm:py-20 bg-[#FAF8F5] overflow-hidden"
+      >
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Top Banner Card with warm illuminated manuscript background */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative rounded-3xl sm:rounded-[2.25rem] overflow-hidden  min-h-[280px] sm:min-h-[350px] md:min-h-[380px] flex flex-col items-center justify-center text-center p-6 sm:p-12 md:p-16"
+          >
+            {/* Background Image: illuminated warm open pages */}
+            <img
+              src="/assets/img/Midnight Blue Library Study.png"
+              alt="Illuminated Quran manuscript background"
+              className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.72] contrast-[1.1]"
+              loading="lazy"
+            />
 
-            {/* Left Content (7 cols) */}
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-4">
-                <Compass className="w-3.5 h-3.5 text-[#C9A45C]" />
-                <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">Our Pedagogy</span>
-              </div>
+            {/* Warm terracotta/amber gradient overlay matching the reference image */}
+            {/* <div className="absolute inset-0 bg-gradient-to-br from-[#052049]/92 via-[#123E7A]/88 to-[#6E2606]/94 mix-blend-multiply" /> */}
+            {/* <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(80, 138, 255, 0.18)_0%,rgba(0,0,0,0.45)_100%)]" /> */}
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] leading-tight tracking-tight mb-6">
-                Beyond Completing a Syllabus: Turning Knowledge into Practice
-              </h2>
-
-              <p className="font-sans text-base sm:text-lg text-[#334155] leading-relaxed mb-6">
-                Too often, traditional Quran classes reduce Islamic learning to hurried recitation without comprehension or rote memorisation that fades quickly. At Islah Online Madrasa, our approach is fundamentally different.
-              </p>
-
-              <p className="font-sans text-sm sm:text-base text-[#475569] leading-relaxed mb-8">
-                We believe that authentic education must engage the child's mind, touch their heart, and guide their actions. Every lesson is crafted to connect sacred teachings with the real-life situations modern children navigate every day.
-              </p>
-
-              {/* Side-by-Side Comparison Box */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {/* Traditional Rote */}
-                <div className="p-5 rounded-2xl bg-white/70 border border-red-100 shadow-sm">
-                  <div className="text-xs font-bold uppercase tracking-wider text-red-600 mb-2 flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-red-500" />
-                    Traditional Passive Rote
-                  </div>
-                  <ul className="space-y-2 text-xs text-[#64748B]">
-                    <li>• Passive listening with little student voice</li>
-                    <li>• Memorising texts without understanding meanings</li>
-                    <li>• Strict pressure causing anxiety and burnout</li>
-                    <li>• Disconnected from the child's daily challenges</li>
-                  </ul>
-                </div>
-
-                {/* The Islah Way */}
-                <div className="p-5 rounded-2xl bg-white border border-[#082D7B]/20 shadow-sm relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-[#082D7B]/5 rounded-bl-full" />
-                  <div className="text-xs font-bold uppercase tracking-wider text-[#082D7B] mb-2 flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#082D7B]" />
-                    The Islah Holistic Way
-                  </div>
-                  <ul className="space-y-2 text-xs text-[#334155]">
-                    <li>• Interactive live discussion & active participation</li>
-                    <li>• Clear explanations of wisdom, meanings & Duas</li>
-                    <li>• Patient positive reinforcement & joyful encouragement</li>
-                    <li>• Direct practical habit tracking for everyday life</li>
-                  </ul>
-                </div>
-              </div>
-
-              <button
-                onClick={() => onOpenTrialModal()}
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full text-sm font-bold text-white bg-[#082D7B] hover:bg-[#062360] transition-all shadow-md active:scale-95 cursor-pointer"
-              >
-                <span>Experience the Islah Learning Approach</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+            {/* Small Brand Title on Top */}
+            <div className="relative z-10 text-white font-bold text-xs sm:text-sm tracking-wide lowercase mb-3 sm:mb-4 drop-shadow-xs select-none">
+              islah<span className="font-semibold text-white/90">online</span>madrasa
             </div>
 
-            {/* Right Side Visual Image */}
-            <div className="lg:col-span-5">
-              <div className="relative">
-                <div className="absolute -inset-3 bg-gradient-to-tr from-[#082D7B]/20 via-[#C9A45C]/20 to-transparent rounded-3xl blur-xl" />
+            {/* Big Headline */}
+            <h2 className="relative z-10 text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-[1.15] max-w-2xl text-balance drop-shadow-md">
+              Islamic learning made simple,<br className="hidden sm:inline" /> easy and interesting<br className="hidden sm:inline" /> for everyone.
+            </h2>
+          </motion.div>
 
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white bg-white">
-                  <img
-                    src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=80"
-                    alt="Teacher engaging interactively with young Islamic student online"
-                    className="w-full h-80 sm:h-96 object-cover"
-                    loading="lazy"
-                  />
+          {/* Centered Statement below the banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="text-center max-w-3xl mx-auto mt-10 sm:mt-14 mb-8 sm:mb-10 px-2"
+          >
+            <p className="text-base sm:text-lg md:text-xl text-[#334155] leading-relaxed font-normal">
+              <strong className="font-bold text-[#0F172A]">Learn Islamic Studies</strong> in a way that avoids the usual maze of rigid memorisation and takes you on a <span className="font-bold text-[#123E7A]">straight path</span> to understanding the Quran, the Sunnah, and everyday Islamic values with confidence.
+            </p>
+          </motion.div>
 
-                  <div className="p-6 bg-gradient-to-b from-white to-[#F8F6F0]">
-                    <div className="flex items-center gap-2 text-xs text-[#C9A45C] font-bold mb-1">
-                      <Sparkles className="w-4 h-4" />
-                      <span>CHILD-CENTERED PEDAGOGY</span>
-                    </div>
-                    <h3 className="font-serif text-lg font-bold text-[#082D7B]">
-                      Safe, Nurturing & Encouraging Classrooms
-                    </h3>
-                    <p className="text-xs text-[#64748B] leading-relaxed mt-1">
-                      Our teachers are trained in child psychology, empathy, and positive reinforcement to make every session something your child genuinely looks forward to.
-                    </p>
+          {/* 2x2 Capsule Pills Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 max-w-3xl mx-auto px-2"
+          >
+            {[
+              {
+                icon: LayoutGrid,
+                text: "Start from the basics without feeling lost"
+              },
+              {
+                icon: TrendingUp,
+                text: "Progress at a steady pace that feels natural"
+              },
+              {
+                icon: Layers,
+                text: "Build clarity through short, focused lessons"
+              },
+              {
+                icon: BookOpen,
+                text: "Move from letters to real comprehension"
+              }
+            ].map((pill, idx) => {
+              const Icon = pill.icon;
+              return (
+                <div
+                  key={idx}
+                  className="flex items-center gap-3.5 px-5 py-3 sm:py-3.5 rounded-full bg-white/95 border border-slate-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:border-[#123E7A]/35 hover:shadow-sm transition-all"
+                >
+                  <div className="w-8 h-8 rounded-full bg-[#123E7A]/10 text-[#123E7A] flex items-center justify-center shrink-0">
+                    <Icon className="w-4 h-4" />
                   </div>
+                  <span className="text-xs sm:text-[13px] font-medium text-slate-800 text-left">
+                    {pill.text}
+                  </span>
                 </div>
-              </div>
-            </div>
+              );
+            })}
+          </motion.div>
 
-          </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* 3. SECTION 2: THREE-STEP LEARNING PHILOSOPHY */}
-      <section className="relative py-16 sm:py-24 bg-white border-t border-[#082D7B]/10">
+      <section className="relative py-16 sm:py-24 bg-white border-t border-[#082D7B]/10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-3">
               <Award className="w-3.5 h-3.5 text-[#C9A45C]" />
               <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">Core Philosophy</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] leading-tight tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] leading-tight tracking-tight mb-3">
               Our Three-Step Learning Philosophy
             </h2>
             <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
@@ -265,51 +313,96 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {PHILOSOPHY_STEPS.map((step) => (
-              <div
-                key={step.number}
-                className="relative rounded-2xl bg-[#FBF9F5] border border-[#082D7B]/15 p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group overflow-hidden"
-              >
-                {/* Top Subtle Number Badge */}
-                <div className="flex items-center justify-between mb-6">
-                  <span className="font-mono text-4xl font-extrabold text-[#082D7B]/20 group-hover:text-[#082D7B] transition-colors">
-                    {step.number}
-                  </span>
-                  <span className="font-serif text-xl font-bold text-[#082D7B]/40 group-hover:text-[#C9A45C] transition-colors">
-                    {step.arabic}
-                  </span>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-6 lg:gap-0 items-stretch">
+            {PHILOSOPHY_STEPS.map((step, idx) => {
+              const isDarkNavy = idx === 0;
+              const isMediumBlue = idx === 1;
+              const isLightBlue = idx === 2;
 
-                <div>
-                  <h3 className="font-serif text-3xl font-bold text-[#082D7B] mb-2">
-                    {step.title}
-                  </h3>
+              const cardBg = isDarkNavy
+                ? "bg-[#0B2A68]"
+                : isMediumBlue
+                ? "bg-[#0E6AD8]"
+                : "bg-[#ADC6EB]";
 
-                  <p className="text-xs font-semibold text-[#0568BD] uppercase tracking-wider mb-4">
-                    {step.tagline}
-                  </p>
+              const innerBorder = isLightBlue
+                ? "border-[#0B2A68]/30"
+                : "border-white/35";
 
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed mb-6">
-                    {step.description}
-                  </p>
+              const textColor = isLightBlue ? "text-[#0B2A68]" : "text-white";
+              const subtitleColor = isLightBlue ? "text-[#0B2A68]/85" : "text-white/90";
+              const numberColor = isLightBlue ? "text-[#0B2A68]/20" : "text-white/20";
+              const bulletColor = isLightBlue ? "text-[#0B2A68]" : "text-white/95";
+              const numChar = String(idx + 1);
 
-                  <div className="space-y-2.5 mb-8">
-                    {step.deliverables.map((d, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-[#334155]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#082D7B] shrink-0 mt-0.5" />
-                        <span>{d}</span>
+              return (
+                <motion.div
+                  key={step.number}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.12 }}
+                  whileHover={{ y: -6 }}
+                  className={`rounded-[1.75rem] p-3 sm:p-3.5 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between ${cardBg}`}
+                >
+                  <div
+                    className={`relative rounded-[1.35rem] border ${innerBorder} p-6 sm:p-7 flex flex-col justify-between h-full min-h-[380px] sm:min-h-[420px] overflow-hidden`}
+                  >
+                    {/* Top Header: Big Numeral & Title/Tagline */}
+                    <div>
+                      <div className="flex items-start gap-4 sm:gap-5 mb-6">
+                        <span
+                          className={`font-sans text-6xl sm:text-7xl font-bold leading-none select-none shrink-0 ${numberColor}`}
+                        >
+                          0{numChar}
+                        </span>
+                        <div className="pt-0.5">
+                          <h3 className={`text-2xl sm:text-3xl font-bold tracking-tight mb-1.5 ${textColor}`}>
+                            {step.title}
+                          </h3>
+                          <p className={`text-xs sm:text-[13px] leading-snug font-normal ${subtitleColor}`}>
+                            {step.tagline}
+                          </p>
+                        </div>
                       </div>
-                    ))}
-                  </div>
-                </div>
 
-                <div className="pt-4 border-t border-[#082D7B]/10 flex items-center justify-between text-xs text-[#082D7B] font-semibold">
-                  <span>Phase {step.number} of Mastery</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            ))}
+                      {/* Bullet points list */}
+                      <ul className="space-y-3 sm:space-y-3.5 text-xs sm:text-[13px] leading-relaxed relative z-10 mt-6 sm:mt-8">
+                        {step.deliverables.map((d, i) => (
+                          <li key={i} className={`flex items-start gap-2.5 ${bulletColor}`}>
+                            <span className="text-base leading-none select-none mt-0.5">•</span>
+                            <span>{d}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Bottom Right Watermark Images (13.png, 14.png, 15.png) */}
+                    {isDarkNavy && (
+                      <img
+                        src="/assets/img/13.png"
+                        alt=""
+                        className="absolute bottom-0 right-0 w-44 h-44 sm:w-72 sm:h-72 object-contain pointer-events-none brightness-0 invert opacity-20 select-none"
+                      />
+                    )}
+                    {isMediumBlue && (
+                      <img
+                        src="/assets/img/14.png"
+                        alt=""
+                        className="absolute bottom-0 right-0 w-44 h-44 sm:w-72 sm:h-72 object-contain pointer-events-none brightness-0 invert opacity-20 select-none"
+                      />
+                    )}
+                    {isLightBlue && (
+                      <img
+                        src="/assets/img/15.png"
+                        alt=""
+                        className="absolute bottom-0 right-0 w-44 h-44 sm:w-72 sm:h-72 object-contain pointer-events-none opacity-25 select-none"
+                      />
+                    )}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
         </div>
@@ -368,232 +461,178 @@ export const TeachingApproachPage: React.FC<TeachingApproachPageProps> = ({
         </div>
       </section>
 
-      {/* 5. SECTION 4: CHARACTER DEVELOPMENT (AKHLAAQ & TARBIYAH) */}
-      <section className="relative py-16 sm:py-24 bg-white border-t border-[#082D7B]/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-            {/* Left Image Showcase (5 cols) */}
-            <div className="lg:col-span-5 order-2 lg:order-1">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white">
-                <img
-                  src="https://i.pinimg.com/736x/2e/ef/dc/2eefdc096c3bfce17ef597be49b5fbbd.jpg"
-                  alt="Young student showing good manners and attentive listening"
-                  className="w-full h-96 object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#082D7B]/80 via-transparent to-transparent flex items-end p-6">
-                  <div className="text-white">
-                    <div className="font-serif text-xl font-bold mb-1">Tarbiyah (Character Cultivation)</div>
-                    <p className="text-xs text-white/80">
-                      "I was sent only to perfect noble character." — Prophet Muhammad ﷺ
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Character Principles (7 cols) */}
-            <div className="lg:col-span-7 order-1 lg:order-2">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-4">
-                <Heart className="w-3.5 h-3.5 text-[#C9A45C]" />
-                <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">Character Development</span>
-              </div>
-
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] leading-tight tracking-tight mb-6">
-                Cultivating Noble Manners in Every Daily Encounter
-              </h2>
-
-              <p className="font-sans text-sm sm:text-base text-[#475569] leading-relaxed mb-8">
-                Islamic education is not merely an intellectual pursuit; it is a transformation of the soul. Our curriculum explicitly builds character traits that prepare students to be compassionate, responsible, and upright members of society.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {CHARACTER_TRAITS.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="p-5 rounded-xl bg-[#FBF9F5] border border-[#082D7B]/10 hover:border-[#082D7B]/25 transition-all"
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-serif text-base font-bold text-[#082D7B]">
-                        {item.trait}
-                      </h4>
-                      <span className="text-[10px] text-[#C9A45C] font-semibold">
-                        {item.badge}
-                      </span>
-                    </div>
-                    <p className="text-xs text-[#64748B] leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* 6. SECTION 5: LEARNING BEYOND TEXTBOOKS */}
-      <section className="relative py-16 sm:py-24 bg-[#FBF9F5] overflow-hidden">
-        <HeroBgPattern opacity={0.03} />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#082D7B]/8 border border-[#082D7B]/15 text-xs text-[#082D7B] font-semibold mb-3">
-              <Lightbulb className="w-3.5 h-3.5 text-[#C9A45C]" />
-              <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">Real-World Application</span>
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#082D7B] leading-tight tracking-tight mb-4">
-              Learning Beyond Textbooks
-            </h2>
-            <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-              We bring Islamic studies alive through hands-on activities, practical workshops, real-life situational challenges, and reflective communication.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 rounded-2xl bg-white border border-[#082D7B]/10 shadow-sm text-center flex flex-col items-center">
-              <div className="w-12 h-12 rounded-xl bg-[#082D7B]/10 flex items-center justify-center text-[#082D7B] mb-4">
-                <Smile className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-lg font-bold text-[#082D7B] mb-2">Practical Activities</h3>
-              <p className="text-xs text-[#64748B] leading-relaxed">
-                Step-by-step Wudu checks, live Salah correction, and Dua memorisation cards integrated directly into daily routines.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white border border-[#082D7B]/10 shadow-sm text-center flex flex-col items-center">
-              <div className="w-12 h-12 rounded-xl bg-[#0D2D72]/10 flex items-center justify-center text-[#0D2D72] mb-4">
-                <Users className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-lg font-bold text-[#0D2D72] mb-2">Interactive Workshops</h3>
-              <p className="text-xs text-[#64748B] leading-relaxed">
-                Thematic weekend deep-dives on Seerah lessons, Ramadan prep bootcamps, and digital ethics for modern students.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white border border-[#082D7B]/10 shadow-sm text-center flex flex-col items-center">
-              <div className="w-12 h-12 rounded-xl bg-[#0568BD]/10 flex items-center justify-center text-[#0568BD] mb-4">
-                <Compass className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-lg font-bold text-[#0568BD] mb-2">Real-Life Scenarios</h3>
-              <p className="text-xs text-[#64748B] leading-relaxed">
-                Analyzing ethical dilemmas: how to handle peer pressure, standing up for honesty, and showing empathy to friends.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white border border-[#082D7B]/10 shadow-sm text-center flex flex-col items-center">
-              <div className="w-12 h-12 rounded-xl bg-[#C9A45C]/15 flex items-center justify-center text-[#C9A45C] mb-4">
-                <Mic className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-lg font-bold text-[#082D7B] mb-2">Reflection & Voice</h3>
-              <p className="text-xs text-[#64748B] leading-relaxed">
-                Encouraging children to express their feelings, speak respectfully, and form thoughtful Islamic perspectives.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 7. SECTION 6: OUR EDUCATIONAL GOAL (THE PIPELINE) */}
-      <section className="relative py-16 sm:py-24 bg-[#082D7B] text-white overflow-hidden">
+      {/* 5. ALTERNATIVE MINIMAL SECTION: THE LIVING ISLAM ROADMAP */}
+      <section className="relative py-16 sm:py-24 bg-gradient-to-b from-[#082D7B] via-[#093282] to-[#051C4E] text-white overflow-hidden">
         <HeroBgPattern isDark opacity={0.06} />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs text-[#C9A45C] font-semibold mb-3">
-              <Award className="w-3.5 h-3.5" />
-              <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">The Roadmap of Transformation</span>
+          {/* Minimal Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center max-w-2xl mx-auto mb-12 sm:mb-16"
+          >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs text-[#DFBA74] font-semibold mb-3">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span className="uppercase tracking-widest text-[10px] sm:text-[11px]">The Transformation Pathway</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight mb-4">
-              Our Educational Goal
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-3">
+              From Sacred Knowledge to Living Character
             </h2>
-            <p className="text-sm sm:text-base text-white/80 leading-relaxed">
-              Every stage of learning naturally unlocks the next—creating a continuous upward trajectory from early knowledge to enduring success.
+            <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-normal">
+              A progressive 5-stage trajectory bridging classical texts directly into daily rituals and lifelong prophetic character.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Transformation Pipeline */}
-          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 relative">
-            {[
-              { step: "01", name: "Knowledge", arabic: "العلم", desc: "Authentic text from Quran & Sunnah" },
-              { step: "02", name: "Understanding", arabic: "الفهم", desc: "Comprehending context & wisdom" },
-              { step: "03", name: "Practice", arabic: "العمل", desc: "Daily acts of worship & Sunnah" },
-              { step: "04", name: "Character", arabic: "الخُلق", desc: "Exemplary Akhlaaq & honesty" },
-              { step: "05", name: "Success", arabic: "الفلاح", desc: "Joy & peace in Dunya and Akhirah" },
-            ].map((p, idx) => (
-              <div
-                key={p.step}
-                className="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-center flex flex-col items-center justify-between hover:bg-white/15 transition-all"
-              >
-                <div>
-                  <div className="w-10 h-10 rounded-full bg-[#C9A45C]/20 text-[#C9A45C] font-mono text-sm font-bold flex items-center justify-center mb-3">
-                    {p.step}
-                  </div>
-                  <h3 className="font-serif text-lg font-bold text-white mb-1">
-                    {p.name}
-                  </h3>
-                  <div className="text-xs text-[#C9A45C] font-serif mb-2">
-                    {p.arabic}
-                  </div>
+          {/* ALTERNATIVE: Interactive Horizontal Progress Ribbon (No Boxed Cards) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="relative mb-8 sm:mb-10 max-w-4xl mx-auto px-2"
+          >
+            {/* Connecting Track Line */}
+            <div className="absolute top-5 sm:top-6 left-8 right-8 h-0.5 bg-white/15 rounded-full" />
+            {/* Active Progress Fill */}
+            <motion.div
+              className="absolute top-5 sm:top-6 left-8 h-0.5 bg-gradient-to-r from-[#DFBA74] to-[#DFBA74] rounded-full"
+              initial={false}
+              animate={{ width: `${(activeTrajectory / (TRAJECTORY_STAGES.length - 1)) * 88}%` }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            />
+
+            {/* 5 Milestone Nodes */}
+            <div className="relative z-10 flex items-center justify-between">
+              {TRAJECTORY_STAGES.map((stage, idx) => {
+                const isActive = activeTrajectory === idx;
+                const isPast = activeTrajectory >= idx;
+                return (
+                  <button
+                    key={stage.step}
+                    onClick={() => setActiveTrajectory(idx)}
+                    className="group flex flex-col items-center cursor-pointer focus:outline-none transition-transform"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.12 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-mono text-xs sm:text-sm font-bold transition-all duration-300 ${
+                        isActive
+                          ? "bg-[#DFBA74] text-[#082D7B] shadow-lg shadow-[#DFBA74]/30 ring-4 ring-[#DFBA74]/25 scale-110"
+                          : isPast
+                          ? "bg-white text-[#082D7B] shadow-sm"
+                          : "bg-[#0A2F7D] border border-white/20 text-white/60 hover:border-white/50"
+                      }`}
+                    >
+                      {stage.step}
+                    </motion.div>
+                    <span className={`text-xs font-arabic mt-2 transition-colors ${isActive ? "text-[#DFBA74] font-bold" : "text-white/60"}`}>
+                      {stage.arabic}
+                    </span>
+                    <span className={`text-[11px] sm:text-xs font-medium mt-0.5 transition-colors hidden sm:block ${isActive ? "text-white font-bold" : "text-white/70"}`}>
+                      {stage.name}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* Dynamic Active Milestone Showcase Panel */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTrajectory}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.28 }}
+              className="max-w-4xl mx-auto p-5 sm:p-7 rounded-2xl bg-white/7 backdrop-blur-md border border-white/12 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6 mb-12 sm:mb-14"
+            >
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#DFBA74] px-2 py-0.5 rounded-full bg-[#DFBA74]/15">
+                    Stage {TRAJECTORY_STAGES[activeTrajectory].step}
+                  </span>
+                  <span className="text-xs sm:text-sm font-arabic text-[#DFBA74]">
+                    {TRAJECTORY_STAGES[activeTrajectory].arabic}
+                  </span>
                 </div>
-                <p className="text-xs text-white/80 leading-relaxed">
-                  {p.desc}
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                  {TRAJECTORY_STAGES[activeTrajectory].name} — {TRAJECTORY_STAGES[activeTrajectory].tagline}
+                </h3>
+                <p className="text-xs sm:text-[13px] text-white/80 leading-relaxed font-normal max-w-2xl">
+                  {TRAJECTORY_STAGES[activeTrajectory].desc}
                 </p>
               </div>
-            ))}
+
+              <div className="w-full md:w-auto md:min-w-[280px] p-3.5 sm:p-4 rounded-xl bg-white/6 border border-white/10 shrink-0">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#DFBA74] block mb-1">
+                  Living Implementation:
+                </span>
+                <p className="text-xs text-white/90 leading-relaxed font-normal">
+                  {TRAJECTORY_STAGES[activeTrajectory].appliedFocus}
+                </p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* ALTERNATIVE: Borderless 4-Point Applied Pedagogy Ribbon */}
+          <div className="max-w-5xl mx-auto pt-8 sm:pt-10 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-[#DFBA74] shrink-0 mt-0.5">
+                <Smile className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-xs sm:text-sm font-bold text-white mb-0.5">Hands-On Practice</h4>
+                <p className="text-[11px] text-white/70 leading-relaxed font-normal">
+                  Live Wudu posture corrections, Salah alignment & daily Dua habit tracking.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-[#DFBA74] shrink-0 mt-0.5">
+                <Users className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-xs sm:text-sm font-bold text-white mb-0.5">Thematic Workshops</h4>
+                <p className="text-[11px] text-white/70 leading-relaxed font-normal">
+                  Interactive Seerah deep-dives, Ramadan bootcamps & digital ethics.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-[#DFBA74] shrink-0 mt-0.5">
+                <Compass className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-xs sm:text-sm font-bold text-white mb-0.5">Real-Life Scenarios</h4>
+                <p className="text-[11px] text-white/70 leading-relaxed font-normal">
+                  Overcoming peer pressure, standing up for truth & empathetic manners.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-[#DFBA74] shrink-0 mt-0.5">
+                <Mic className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-xs sm:text-sm font-bold text-white mb-0.5">Reflective Voice</h4>
+                <p className="text-[11px] text-white/70 leading-relaxed font-normal">
+                  Encouraging children to express questions with confident Islamic identity.
+                </p>
+              </div>
+            </div>
           </div>
 
         </div>
       </section>
-
-      {/* 8. MAJOR CTA: EXPERIENCE THE ISLAH LEARNING APPROACH */}
-      {/* <section className="relative py-20 sm:py-24 bg-gradient-to-br from-[#082D7B] via-[#0D2D72] to-[#0568BD] text-white text-center overflow-hidden">
-        <HeroBgPattern isDark opacity={0.07} />
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs text-[#C9A45C] font-semibold mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span className="uppercase tracking-widest text-[10px] sm:text-xs">Book a Free Session</span>
-          </div>
-
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight mb-6 leading-tight">
-            Experience the Islah Learning Approach First-Hand
-          </h2>
-
-          <p className="font-sans text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Witness how our qualified teachers interact patiently with your child in a complimentary 1-on-1 trial class. No pressure, no obligations.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => onOpenTrialModal()}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-bold text-[#082D7B] bg-[#C9A45C] hover:bg-white transition-all shadow-xl hover:shadow-2xl active:scale-95 cursor-pointer"
-            >
-              <span>Experience the Islah Learning Approach</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
-            <button
-              onClick={onOpenWhatsApp}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 transition-all cursor-pointer"
-            >
-              <MessageCircle className="w-4 h-4 text-[#25D366]" />
-              <span>Ask Our Academic Team on WhatsApp</span>
-            </button>
-          </div>
-
-          <div className="mt-8 text-xs text-white/60">
-            Free 30-minute interactive trial • Tailored pace assessment • Worldwide availability
-          </div>
-        </div>
-      </section> */}
 
     </div>
   );

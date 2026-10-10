@@ -41,7 +41,7 @@ export const InnerBanner: React.FC<InnerBannerProps> = ({
         </div>
 
         {/* Inner Page Title */}
-        <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-3 sm:mb-4 text-balance">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-3 sm:mb-4 text-balance">
           {title}
         </h1>
 
